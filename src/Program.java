@@ -5,39 +5,41 @@ import java.io.InputStreamReader;
 public class Program {
 
 	public static void main(String[] args) throws IOException {
-
 		BufferedReader InputReader = new BufferedReader(new InputStreamReader(System.in));
 
-		while (true) {
-			System.out.format("1. Count words %n2. Count letters %n3. Count letters and words "
-					+ " %n4. Combined sum of letters and words %n");
+		boolean loop = true;
+		String choice;
 
-			String choice = InputReader.readLine();
+		do {
+			System.out.println("Choose alternative: ");
+			System.out.println("1. Words");
+			System.out.println("2. Letters");
+			System.out.println("3. Words and Letters");
 
-			System.out.println("Enter String");
-			String str = InputReader.readLine();
-			
+			choice = InputReader.readLine();
+
 			switch (choice) {
 			case "1":
+				System.out.println("Words: ");
+				String str = InputReader.readLine();
 				System.out.println("Total words: " + WordCounter.countWords(str));
 				break;
 			case "2":
-				System.out.println("Total letters: " + LetterCounter.countLetters(str));
+				System.out.println("Letters:");
+				String str2 = InputReader.readLine();
+				System.out.println("Total letters: " + LetterCounter.countLetters(str2));
 				break;
 			case "3":
-				System.out.println("Total words: " + WordCounter.countWords(str));
-				System.out.println("Total letters: " + LetterCounter.countLetters(str));
+				System.out.println("Words and letters:");
+				String str3 = InputReader.readLine();
+				System.out.println("Total words: " + WordCounter.countWords(str3));
+				System.out.println("Total letters: " + LetterCounter.countLetters(str3));
 				break;
 			case "4":
-				System.out.println("Combined count " + (WordCounter.countWords(str) + LetterCounter.countLetters(str)));
+				loop = true;
 				break;
-			default:
-				System.out.println("Invalid choice");
-				break;
-				
 			}
-		}
-
+		} while (loop == true);
+		System.out.println("Back");
 	}
-
 }
