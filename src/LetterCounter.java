@@ -1,15 +1,41 @@
+public class Counter {
 
-public class LetterCounter {
+	public static void countWords(String wordcount) {
 
-	public static int countLetters(String string) {
-		char[] array = string.toCharArray();
-		int count = 0;
-		for (char c : array) {
-			if (c != (' ')) {
-				count++;
+		if (!wordcount.isEmpty()) {
+
+			String[] strArray = wordcount.split(" ");
+			int count = 0;
+			for (String s : strArray) {
+				if (!s.equals(" ")) {
+					count++;
+				}
+
 			}
+			System.out.println("Total words: " + count);
 		}
-		return count;
 
+	}
+
+	public static void countLetters(String lettercount) {
+
+		if (!lettercount.isEmpty()) {
+
+			char[] array = lettercount.toCharArray();
+			int count = 0;
+			for (char c : array) {
+				if (c != (' ')) {
+					count++;
+				}
+			}
+			System.out.println("Total letters: " + count);
+		}
+
+	}
+	
+	public static void countLettersAndWords(String sentence) {
+		
+		countWords(sentence);
+		countLetters(sentence);
 	}
 }

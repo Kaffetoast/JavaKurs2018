@@ -7,39 +7,34 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 		BufferedReader InputReader = new BufferedReader(new InputStreamReader(System.in));
 
-		boolean loop = true;
-		String choice;
+		String sentence;
 
-		do {
+		while (true) {
 			System.out.println("Choose alternative: ");
 			System.out.println("1. Words");
 			System.out.println("2. Letters");
 			System.out.println("3. Words and Letters");
 
-			choice = InputReader.readLine();
 
-			switch (choice) {
+			switch (InputReader.readLine()) {
 			case "1":
 				System.out.println("Words: ");
-				String str = InputReader.readLine();
-				System.out.println("Total words: " + WordCounter.countWords(str));
+				sentence = InputReader.readLine();
+				Counter.countWords(sentence);
 				break;
 			case "2":
-				System.out.println("Letters:");
-				String str2 = InputReader.readLine();
-				System.out.println("Total letters: " + LetterCounter.countLetters(str2));
+				System.out.println("Letters: ");
+				sentence = InputReader.readLine();
+				Counter.countLetters(sentence);
 				break;
 			case "3":
 				System.out.println("Words and letters:");
-				String str3 = InputReader.readLine();
-				System.out.println("Total words: " + WordCounter.countWords(str3));
-				System.out.println("Total letters: " + LetterCounter.countLetters(str3));
+				sentence = InputReader.readLine();
+				Counter.countLettersAndWords(sentence);
 				break;
-			case "4":
-				loop = true;
+			default:
 				break;
 			}
-		} while (loop == true);
-		System.out.println("Back");
+		}
 	}
 }
