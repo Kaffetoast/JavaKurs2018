@@ -33,9 +33,9 @@ public class Counter {
 
 	}
 	
-	public static void countLettersAndWords(String sentence) {
+	public static void countLettersAndWords(String countStuff) {
 		
-		countWords(sentence);
-		countLetters(sentence);
+		countWords(countStuff);
+		countLetters(countStuff);
 	}
 }

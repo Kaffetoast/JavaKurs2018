@@ -7,7 +7,7 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 		BufferedReader InputReader = new BufferedReader(new InputStreamReader(System.in));
 
-		String sentence;
+		String countStuff;
 
 		while (true) {
 			System.out.println("Choose alternative: ");
@@ -19,18 +19,18 @@ public class Program {
 			switch (InputReader.readLine()) {
 			case "1":
 				System.out.println("Words: ");
-				sentence = InputReader.readLine();
-				Counter.countWords(sentence);
+				countStuff= InputReader.readLine();
+				Counter.countWords(countStuff);
 				break;
 			case "2":
 				System.out.println("Letters: ");
-				sentence = InputReader.readLine();
-				Counter.countLetters(sentence);
+				countStuff = InputReader.readLine();
+				Counter.countLetters(countStuff);
 				break;
 			case "3":
 				System.out.println("Words and letters:");
-				sentence = InputReader.readLine();
-				Counter.countLettersAndWords(sentence);
+				countStuff = InputReader.readLine();
+				Counter.countLettersAndWords(countStuff);
 				break;
 			default:
 				break;
