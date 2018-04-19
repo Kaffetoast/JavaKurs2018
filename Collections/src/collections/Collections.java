@@ -7,28 +7,25 @@ public class Collections {
 
 	public static void main(String[] args) {
 
-		int[] arr = new int[] { 1, 1, 2, 2, 3, 3, 4, 4 };
+		int[] arr = new int[5];
 
 		ArrayTypes arrayTypes = new ArrayTypes();
-		Scanner scan = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 
-		System.out.println(Arrays.toString(arr));
 
 		while (true) {
 
-			
-			System.out.println("1. Remove Array dupes");
-			System.out.println("2. Remove Set dupes");
-			System.out.println("3. Add to Array");
-			System.out.println("4. Remove first in Array");
-			System.out.println("5. Map with int + string Array");
+			System.out.println("");
+			System.out.println(" [1]. Remove Array dupes");
+			System.out.println(" [2]. Remove Set dupes");
+			System.out.println(" [3]. Add to Array");
+			System.out.println(" [4]. Remove first in Array");
+			System.out.println(" [5]. Map with int + string Array");
 
-			String choice = scan.nextLine();
+			String choice = input.next();
 
 			if (choice.equals("1")) {
-				scan.next();
-				arrayTypes.arrayInt(arr);
-
+				arrayTypes.removeArrayDupe(arr);
 
 			}
 
@@ -38,9 +35,13 @@ public class Collections {
 
 			else if (choice.equals("3")) {
 
-			} else if (choice.equals("4")) {
+			}
 
-			} else if (choice.equals("5")) {
+			else if (choice.equals("4")) {
+
+			}
+
+			else if (choice.equals("5")) {
 
 			}
 		}
