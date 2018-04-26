@@ -15,9 +15,7 @@ public class Program {
 	public static void main(String[] args) throws ParseException, IOException {
 
 		boolean bookingGet;
-
 		BookingList thisBooking = new BookingList();
-
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
 		while (true) {
@@ -45,7 +43,6 @@ public class Program {
 							System.out.print(" Date (YYYY-MM-DD): ");
 							String date = input.readLine();
 							bookingDate = LocalDate.parse(date, dateFormat);
-
 						}
 
 						if (bookingStart == null) {
@@ -54,9 +51,6 @@ public class Program {
 							System.out.print(" Start time: (HH : MM): ");
 							String time = input.readLine();
 							bookingStart = LocalTime.parse(time, timeFormat);
-							
-							
-
 						}
 
 						System.out.println();
