@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class BookingList {
 
 	private ArrayList<BookingDateTime> bookingList = new ArrayList<BookingDateTime>();
-
+	
 	public boolean checkBookingTime(BookingDateTime newBook) {
 
 		if (newBook.getStartTime().compareTo(newBook.getStopTime()) > 0) {
@@ -29,21 +29,24 @@ public class BookingList {
 
 				if (a || b || c || d) {
 
-					return false;
+					return true;
 				}
 			}
 		}
 		return true;
 	}
 	
-	public boolean addBooking(LocalTime starttime, LocalTime stoptime, LocalDate date) {
+	public boolean addBooking(LocalTime starttime, LocalTime stoptime, LocalDate date, double price) {
 
 		BookingDateTime booking = new BookingDateTime();
-
+		
+		
 		booking.setStartTime(starttime);
-		booking.setStoptTime(stoptime);
+		booking.setStopTime(stoptime);
 		booking.setDate(date);
-
+		booking.setPrice();
+		
+		
 		Boolean bookingCheck = checkBookingTime(booking);
 
 		if (bookingCheck == true) {
@@ -61,7 +64,9 @@ public class BookingList {
 			System.out.println(" Date: " + booking.getDate().toString());
 			System.out.println(" Start time: " + booking.getStartTime().toString());
 			System.out.println(" End time: " + booking.getStopTime().toString());
-
+			System.out.println(" Price: " + booking.setPrice()); 
+			System.out.println(" Employee: ");
+			
 		}
 
 	}

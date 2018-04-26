@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 
-public class Booking {
+public class Program {
 
 	public static void main(String[] args) throws ParseException, IOException {
 
@@ -32,6 +32,7 @@ public class Booking {
 				LocalDate bookingDate = null;
 				LocalTime bookingStart = null;
 				LocalTime bookingStop = null;
+				double bookingPrice = 0;
 
 				while (bookingDate == null || bookingStart == null || bookingStop == null) {
 
@@ -53,16 +54,17 @@ public class Booking {
 							System.out.print(" Start time: (HH : MM): ");
 							String time = input.readLine();
 							bookingStart = LocalTime.parse(time, timeFormat);
+							
+							
 
 						}
 
 						System.out.println();
 						System.out.print(" End time: (HH : MM): ");
 						String time2 = input.readLine();
-						System.out.println();
 						bookingStop = LocalTime.parse(time2, timeFormat);
 
-						bookingGet = thisBooking.addBooking(bookingStart, bookingStop, bookingDate);
+						bookingGet = thisBooking.addBooking(bookingStart, bookingStop, bookingDate, bookingPrice);
 
 						if (bookingGet == false) {
 						
