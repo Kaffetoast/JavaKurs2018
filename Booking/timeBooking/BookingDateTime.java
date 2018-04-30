@@ -10,6 +10,7 @@ public class BookingDateTime {
 	private LocalTime starttime;
 	private LocalTime stoptime;
 	private LocalDate date;
+	private Employee employee;
 	private double price;
 	
 	public void setStartTime(LocalTime starttime) {
@@ -36,6 +37,15 @@ public class BookingDateTime {
 		return this.date;
 	}
 	
+	
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
 	public double setPrice() {
 		double minutes = 60;
 		double hourPay = 15;
@@ -43,6 +53,8 @@ public class BookingDateTime {
 		
 		price = time * ChronoUnit.MINUTES.between(starttime, stoptime);
 		return this.price;
+		
+		
 	}
 
 }

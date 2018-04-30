@@ -1,33 +1,15 @@
 package timeBooking;
 
-import java.util.ArrayList;
-
 public class Employee extends BookingList {
 
-	private String firstName;
-	private String lastName;
+
+	public String name;
 	
-	public Employee (String fName, String lName) {
+	public Employee (String name) {
 		
-		firstName = fName;
-		lastName = lName;
+		this.name = name;
 		
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		
 	}
 	
 }

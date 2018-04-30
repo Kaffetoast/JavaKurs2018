@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Program {
@@ -18,6 +20,12 @@ public class Program {
 		BookingList thisBooking = new BookingList();
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
+		List<Employee> Employees = new ArrayList<Employee>();
+		
+		Employees.add(new Employee("Stefano"));
+		Employees.add(new Employee("Miguel"));
+		Employees.add(new Employee("José"));
+		
 		while (true) {
 
 			System.out.print("1. Book Time  " + "\n");
@@ -57,8 +65,33 @@ public class Program {
 						System.out.print(" End time: (HH : MM): ");
 						String time2 = input.readLine();
 						bookingStop = LocalTime.parse(time2, timeFormat);
+						
+						Employee chosenEmployee = null;
+						boolean employeeChosen = false;
+						
+						while (!employeeChosen) {
+							
+							System.out.println("Employees; ");
+							
+							for (int i = 0; i < Employees.size(); i++) {
+								System.out.println(Employees.get(i).name);
+							}
+							
+							String emp = input.readLine().trim().toLowerCase();
 
-						bookingGet = thisBooking.addBooking(bookingStart, bookingStop, bookingDate, bookingPrice);
+							for (int i = 0; i < Employees.size(); i++) {
+								Employee teEmployee = Employees.get(i);
+
+								if (teEmployee.name.trim().toLowerCase().equals(emp)) {
+									
+									chosenEmployee = teEmployee;
+									employeeChosen = true;
+									break;
+								}
+							}
+						}
+
+						bookingGet = thisBooking.addBooking(bookingStart, bookingStop, bookingDate, bookingPrice, chosenEmployee);
 
 						if (bookingGet == false) {
 						

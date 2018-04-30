@@ -3,7 +3,9 @@ package collections;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Collections {
@@ -14,8 +16,6 @@ public class Collections {
 
 		ArrayTypes arrayTypes = new ArrayTypes();
 		BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
-		Scanner scan = new Scanner(System.in);
-
 		
 
 		while (true) {
@@ -27,7 +27,8 @@ public class Collections {
 			System.out.println(" [4]. Remove first in Array");
 			System.out.println(" [5]. Map with int + string Array");
 
-			String choice = scan.next();
+			
+			String choice = input.readLine();
 
 			if (choice.equals("1")) {
 				arrayTypes.removeArrayDupe(arr);
@@ -39,20 +40,20 @@ public class Collections {
 			}
 
 			else if (choice.equals("3")) {
-
+				int addEnd = 0;
+				arrayTypes.addArrayListEnd(arr, addEnd);
 			}
 			
-			
-			
-
 			else if (choice.equals("4")) {
+				int removeFirst = 0;
+				arrayTypes.removeFirstInArray(arr, removeFirst);
 				
-				arrayTypes.removeFirstInArray(arr);
 
 			}
 
 			else if (choice.equals("5")) {
-
+				String[] cars = null;
+				arrayTypes.hashMap(arr, cars);
 			}
 		}
 	}

@@ -29,14 +29,14 @@ public class BookingList {
 
 				if (a || b || c || d) {
 
-					return true;
+					return false;
 				}
 			}
 		}
 		return true;
 	}
 
-	public boolean addBooking(LocalTime starttime, LocalTime stoptime, LocalDate date, double price) {
+	public boolean addBooking(LocalTime starttime, LocalTime stoptime, LocalDate date, double price, Employee employee) {
 
 		BookingDateTime booking = new BookingDateTime();
 
@@ -44,7 +44,10 @@ public class BookingList {
 		booking.setStopTime(stoptime);
 		booking.setDate(date);
 		booking.setPrice();
-
+		booking.setEmployee(employee);
+		
+		
+		
 		Boolean bookingCheck = checkBookingTime(booking);
 
 		if (bookingCheck == true) {
@@ -63,7 +66,7 @@ public class BookingList {
 			System.out.println(" Start time: " + booking.getStartTime().toString());
 			System.out.println(" End time: " + booking.getStopTime().toString());
 			System.out.println(" Price: " + booking.setPrice());
-			System.out.println(" Employee: ");
+			System.out.println(" Employee: "+ booking.getEmployee().name);
 
 		}
 
