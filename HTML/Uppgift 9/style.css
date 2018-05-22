@@ -14,16 +14,16 @@ body, html {
 
 .flex-wrapper {
 
-    max-width: 50%;
+    max-width: 55%;
     background-color:rgb(54, 25, 25, 0.9);
     opacity: 50%;   
     margin: 20px auto 0 auto;
     color: white;
     display: flex;
     height: 60vh;
-    overflow: auto;
     margin: auto;
     margin: 50px auto 0 auto;
+	overflow-x:auto;
     
 }
 
@@ -33,14 +33,15 @@ body, html {
     flex:1;
     align-items: center;
     justify-content: left;
+	
 
 }
 
 .main-flex2 {
 
+	display:flex;
     flex:2;
     flex-direction: column;
-    overflow: auto;
 	
 }
 
@@ -113,21 +114,22 @@ body, html {
 .bottomflex {
 
     
-    max-width: 50%;
+    max-width: 55%;
+	flex-wrap:wrap;
     margin:0% auto 0 auto;
     display:flex;
     justify-content:space-between;
     padding-top: 60px;
-    
 
 }
 
 .flexcontent {
-    flex-basis: 20%;
+    flex-basis: 30%;
     box-sizing: border-box;
     padding: 10px;
     background-color:rgb(54, 25, 25, 0.9);
     opacity: 50%;   
+
     
     
 }
@@ -144,28 +146,38 @@ body, html {
 
 .flex-shop {
     display: flex;
-	max-width: 50%;
-    align-content: stretch;
+	flex:1;
+	max-width: 100%;
+    padding-top:50px;
     margin: 0;
-    
+	flex-wrap:wrap;
+	align-items: center;
+    justify-content: center;
+	
+	
     }
 
 .flex-item1, .flex-item2, .flex-item3 {
     flex: 1;
-    margin: 10px 75px;
+	margin: auto;
+	display:flex;
+	flex-direction:column;
+    display: flex;
     align-items: center;
-    
+    justify-content: center;
+	flex-wrap:wrap;
+	
     }
 
 .flex-wrappershop {
 
-     max-width: 50%;
+     max-width: 800px;
+	 
      background-color:rgb(54, 25, 25, 0.9);
      opacity: 50%;   
-     margin: 50px auto 0 auto;
+     margin: 40px auto 0 auto;
      color: white;
      line-height: 1.65;
-     
 
 }
 

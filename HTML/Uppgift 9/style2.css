@@ -144,24 +144,33 @@ body, html {
 
 .flex-shop {
     display: flex;
+	flex:1;
 	max-width: 100%;
     padding-top:50px;
-    align-content: stretch;
     margin: 0;
 	flex-wrap:wrap;
-    
-   
-
+	align-items: center;
+    justify-content: center;
+	
+	
     }
 
 .flex-item1, .flex-item2, .flex-item3 {
     flex: 1;
-    margin: 0 100px;
+	margin: auto;
+	display:flex;
+	flex-direction:column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-wrap:wrap;
+	
     }
 
 .flex-wrappershop {
 
      max-width: 1000px;
+	 
      background-color:rgb(54, 25, 25, 0.9);
      opacity: 50%;   
      margin: 40px auto 0 auto;
