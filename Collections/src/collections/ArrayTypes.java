@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -74,9 +75,6 @@ public class ArrayTypes {
 				addArrayEnd.add(arr[i]);
 			}
 			
-			System.out.println("Input:");
-			System.out.println(addArrayEnd.toString());
-			System.out.println("Output:");
 			addArrayEnd.add(addEnd);
 			System.out.println(addArrayEnd.toString());
 			
@@ -105,21 +103,22 @@ public class ArrayTypes {
 
 	}
 	
-	public void hashMap(int [] arr, String[] cars) {
+	public void hashMap(int [] arr, String[] String) {
 		
 		
-		Map <Integer, String> numCars = new LinkedHashMap<>();
+		HashMap<Integer, String> hashMap= new HashMap<Integer, String>();
 		
-		for (int i = 0; i < cars.length; i++) { 
-			numCars.put(arr[i], cars[i]);
+		for (int i = 0; i < String.length; i++) { 
+			hashMap.put(arr[i], String[i]);
 		}
 		
 	     
 		System.out.println("Input");
 		System.out.println(Arrays.toString(arr));
-		System.out.println(Arrays.toString(cars));
+		System.out.println(Arrays.toString(String));
 		System.out.println("Output");
-		numCars.forEach((key,value) -> System.out.println(key+":"+value));
+		hashMap.forEach((key,value) -> System.out.println(key+":"+value));
+		
 	
 	}
 	

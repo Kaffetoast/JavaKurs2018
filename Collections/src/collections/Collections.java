@@ -12,7 +12,7 @@ public class Collections {
 
 	public static void main(String[] args) throws IOException {
 
-		int[] arr = new int[] {2,3,3,4,5};
+		int[] arr = new int[] {2,3,3,4,5,5};
 
 		ArrayTypes arrayTypes = new ArrayTypes();
 		BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
@@ -40,8 +40,11 @@ public class Collections {
 			}
 
 			else if (choice.equals("3")) {
-				int addEnd = 0;
+				System.out.println("Input:");
+				int addEnd = Integer.parseInt(input.readLine());
+				System.out.println("Output:");
 				arrayTypes.addArrayListEnd(arr, addEnd);
+				
 			}
 			
 			else if (choice.equals("4")) {
