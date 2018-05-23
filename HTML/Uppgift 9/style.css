@@ -17,8 +17,7 @@ body, html {
 .flex-wrapper {
 
     max-width: 55%;
-    background-color:rgb(54, 25, 25, 0.9);
-    opacity: 50%;   
+    background-color:rgb(54, 25, 25, 0.5);  
     margin: 20px auto 0 auto;
     color: white;
     display: flex;
@@ -26,6 +25,7 @@ body, html {
     margin: auto;
     margin: 50px auto 0 auto;
 	overflow-x:auto;
+	border-radius: 4px;
     
 }
 
@@ -173,13 +173,12 @@ body, html {
 
 .flex-wrappershop {
 
-     max-width: 800px;
-	 
-     background-color:rgb(54, 25, 25, 0.9);
-     opacity: 50%;   
+     max-width: 55%;
+	 background-color:rgb(54, 25, 25, 0.5);
      margin: 40px auto 0 auto;
      color: white;
      line-height: 1.65;
+	 border-radius: 4px;
 
 }
 
@@ -194,7 +193,7 @@ input[type=text], select, textarea {
 input[type=submit] {
     background-color: #4CAF50;
     color: white;
-    padding: 12px 30px;
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -209,14 +208,14 @@ input[type=submit]:hover {
 .container {
     border-radius: 5px;
     padding-top: 20px;
-    background-color:rgb(54, 25, 25, 0.9);
+    background-color:rgb(54, 25, 25, 0.5);
     opacity:50%;
     display: flex;
+	align-items:center;
     flex:1;
     flex-direction: column;
     overflow: auto;
     flex-grow: 1;
-    margin-left: 180px;
     overflow: hidden;    
 }
 

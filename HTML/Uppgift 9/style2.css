@@ -14,8 +14,8 @@ body, html {
 
 .flex-wrapper {
 
-    max-width: 1000px;
-    background-color:rgb(54, 25, 25, 0.9);
+    max-width: 70%;
+    background-color:rgb(54, 25, 25, 0.5);
     opacity: 50%;   
     margin: 40px auto 0 auto;
     color: white;
@@ -118,7 +118,7 @@ body, html {
 .bottomflex {
 
     
-    max-width: 1000px;
+    max-width: 70%;
     margin: 40px auto 0 auto;
     display:flex;
     justify-content:space-between;
@@ -129,7 +129,7 @@ body, html {
     flex-basis: 40%;
     box-sizing: border-box;
     padding: 20px;
-    background-color:rgb(54, 25, 25, 0.9);
+    background-color:rgb(54, 25, 25, 0.5);
     opacity: 50%;   
 	
 }
@@ -171,9 +171,8 @@ body, html {
 
 .flex-wrappershop {
 
-     max-width: 1000px;
-	 
-     background-color:rgb(54, 25, 25, 0.9);
+     max-width: 70%;
+     background-color:rgb(54, 25, 25, 0.5);
      opacity: 50%;   
      margin: 40px auto 0 auto;
      color: white;
@@ -203,7 +202,7 @@ input[type=submit]:hover {
 
 .container {
     border-radius: 5px;
-    background-color:rgb(54, 25, 25, 0.9);
+    background-color:rgb(54, 25, 25,);
     opacity:50%;
     padding: 20px;
 }
