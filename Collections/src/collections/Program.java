@@ -13,13 +13,12 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 
 		
-		int[] arr = new int[] {2,3,3,4,5,5};
+		int[] arr = { 0, 8, 1, 2, 2, 1, 4, 7, 4, 7, 6, 3, 1, 9 };
+
+		int[] arrayResult;
 
 		Collections arrayTypes = new Collections();
 		BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
-		
-		//int x = input.read();
-		//int [] arr = new int [x];
 
 		while (true) {
 
@@ -31,18 +30,19 @@ public class Program {
 			System.out.println(" [5]. Map with int + string Array");
 
 			
-			String choice = input.readLine();
+			int choice = Integer.parseInt(input.readLine());
 
-			if (choice.equals("1")) {
+			if (choice == 1) {
 				arrayTypes.removeArrayDupe(arr);
 
 			}
 
-			else if (choice.equals("2")) {
+			else if (choice == 2) {
 				arrayTypes.removeSetDupe(arr);
+				
 			}
 
-			else if (choice.equals("3")) {
+			else if (choice == 3) {
 				System.out.println("Input:");
 				int addEnd = Integer.parseInt(input.readLine());
 				System.out.println("Output:");
@@ -50,14 +50,17 @@ public class Program {
 				
 			}
 			
-			else if (choice.equals("4")) {
-				int removeFirst = 0;
+			else if (choice == 4) {
+				System.out.println("Input:");
+				int removeFirst = Integer.parseInt(input.readLine());
+				System.out.println("Output:");
 				arrayTypes.removeFirstInArray(arr, removeFirst);
-				
+			
+
 
 			}
 
-			else if (choice.equals("5")) {
+			else if (choice == 5){
 				String[] String = null;
 				arrayTypes.hashMap(arr, String);
 			}

@@ -7,14 +7,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Collections {
 
-	Scanner scan = new Scanner(System.in);
 	
 	BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
 
@@ -48,6 +49,7 @@ public class Collections {
 		System.out.println(removeDupe);
 
 			}
+	
 
 			
 
@@ -59,10 +61,9 @@ public class Collections {
 			setRemove.add(arr[i]);
 			   
 			}
-			System.out.println("Input:");
+		
 			System.out.println(Arrays.toString(arr));
-			System.out.println("Output:");
-			System.out.println(setRemove);
+			System.out.println("Output:" +setRemove);
 		}
 		
 
@@ -84,29 +85,31 @@ public class Collections {
 
 	public void removeFirstInArray(int[] arr, int removeFirst) {
 		
+		List<String> list = new ArrayList<String>();
+		list.remove(0);
+
+		System.out.println(Arrays.toString(arr));
+		System.out.println("Output:" +list.remove(removeFirst));
+	}
+
+
+	
+	public void hashMap(int[] index, String[] apples) {
 		
 
-	}
-	
-	public void hashMap(int [] arr, String[] String) {
-		
-		
-		HashMap<Integer, String> hashMap= new HashMap<Integer, String>();
-		
-		for (int i = 0; i < String.length; i++) { 
-			hashMap.put(arr[i], String[i]);
+			Map <Integer, String> numApples = new LinkedHashMap<>();
+
+			for (int i = 0; i < apples.length; i++) { 
+
+				numApples.put(index[i], apples[i]);
+
+			}
+			System.out.println(Arrays.toString(index));
+			System.out.println(Arrays.toString(apples));
+			System.out.println("Output");
+
+			numApples.forEach((key,value) -> System.out.println(key+":"+value));
+
 		}
-		
-	     
-		System.out.println("Input");
-		System.out.println(Arrays.toString(arr));
-		System.out.println(Arrays.toString(String));
-		System.out.println("Output");
-		hashMap.forEach((key,value) -> System.out.println(key+":"+value));
-		
-	
-	}
-	
-	
 	
 }
