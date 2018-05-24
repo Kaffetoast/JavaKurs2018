@@ -38,3 +38,15 @@ form {
     justify-content: center;
 	
 }
+
+#fizzbuzz {
+
+	display:flex;
+	flex:1;
+	border:1px;
+	text-align: center;
+	justify-content: center;
+	border-style: dashed;
+	height:auto;
+
+}

@@ -1,29 +1,35 @@
 <html>
 
 <head>
+    <script src="fizzbuzz.js"></script>
     <meta charset="UTF-8">
-	<link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FizzBuzz</title>
-
 </head>
 
 <body>
-<div class="header">FizzBuzz</div>
+    <div class="header">FizzBuzz</div>
 
- <form>
-  Sarttal: 
-  <input id ="start" type="number" name="start">
-  Sluttal: 
-  <input id="end" type="number" name="end">
-  Fizz: 
-  <input id="fizz" type="number" name="fizz">
-  Buzz: 
-  <input id="buzz" type="number" name="buzz">
-</form> 
- <button id="generate" onclick ="fizzBuzz()">Generate</button> 
 
-<script src="fizzbuzz.js">
- </script>
+    <form id="form">
+            starttal:<br>
+            <input id="start" type="number" name="startnumber"><br>
+            slutal<br>
+            <input id="slut" type="number" name="endnumber"><br>
+            Fizz<br>
+            <input  id="fizz" type="number" name="fizz"><br>
+            Buzz<br>
+            <input id="buzz" type="number" name="buzz"><br><br>
+           
+          </form>
+          
+          
+          <button onclick="fizzbuzz('start', 'slut', 'fizz','buzz')">Submit 
+          </button>
+          
+          <p id="fizzbuzz"></p>
+
 </body>
-</html> 
+
+</html>
