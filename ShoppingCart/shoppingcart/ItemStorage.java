@@ -11,7 +11,7 @@ public class ItemStorage extends Storage <Item> {
 
 	        for(Item item : itemList) {
 	            System.out.println("Enter: "+ itemList.lastIndexOf(item) +") to add "
-	            		+ item.getDescription() + " from the cart.\n");
+	            		+ item.getDescription() + " to cart.\n");
 
 	        }
 
