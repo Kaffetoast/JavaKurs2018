@@ -57,7 +57,7 @@ public class Program {
 				}
 				break;
 			case "3":
-				cart.displayCart();
+				cart.displaycart();
 				break;
 			case "4":
 				cart.checkOut();

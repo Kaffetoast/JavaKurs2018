@@ -22,7 +22,7 @@ public class ShoppingCart extends Storage<Item> {
 	public void displayCart() {
 
 			System.out.println(itemList.toString());
-			itemList.clear();
+			
 
 
 	}
