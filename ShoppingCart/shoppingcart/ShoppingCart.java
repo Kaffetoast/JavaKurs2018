@@ -6,39 +6,48 @@ import java.util.Locale;
 public class ShoppingCart extends Storage<Item> {
 
 	public void checkOut() {
-		double TotalPrice = 0.0d;
-		NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.getDefault());
 
-		nf.format(TotalPrice);
-
-		for (Item item : itemList) {
-			TotalPrice += item.getPrice();
+		if (itemList.isEmpty()) {
+			System.out.println("Nothing to checkout");
 		}
-		System.out.println("Total: " + TotalPrice);
-		System.out.println("Thanks for shopping!");
-		itemList.clear();
+
+		else if (!itemList.isEmpty()) {
+			double TotalPrice = 0.0d;
+			NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.getDefault());
+
+			for (Item item : itemList) {
+				TotalPrice += item.getPrice();
+			}
+			System.out.println("Total: " + nf.format(TotalPrice));
+			System.out.println("Thanks for shopping!");
+			itemList.clear();
+
+		}
 	}
 
 	public void displayCart() {
 
-			System.out.println(itemList.toString());
-			
+		if (itemList.size() == 0) {
+			System.out.println("Cart is Empty");
+		}
 
+		else if (!itemList.isEmpty()) {
+			System.out.println(itemList.toString());
+		}
 
 	}
 
-    public boolean isEmpty() {
-        return itemList.size() == 0;
+	public boolean isEmpty() {
+		return itemList.size() == 0;
 
-    }
-    
+	}
 
-    public void removeItem(){
+	public void removeItem() {
 
-        for(Item item : itemList) {
-            System.out.println("Enter: "+ itemList.lastIndexOf(item) +") to remove "
-            		+ item.getDescription() + " from cart.\n");
+		for (Item item : itemList) {
+			System.out.println(
+					"Enter: " + item.getArtNumber() + ") to remove " + item.getDescription() + " from cart.\n");
 
-        }
-}
+		}
+	}
 }

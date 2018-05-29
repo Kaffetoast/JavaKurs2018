@@ -11,9 +11,11 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 
 		ShoppingCart cart = new ShoppingCart();
-		ItemStorage item = new ItemStorage();
-		item.initItems();
+		ItemStorage itemStorage = new ItemStorage();
+		itemStorage.initItems();
 
+		
+		
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
 		while (true) {
@@ -22,7 +24,7 @@ public class Program {
 			System.out.println("2. Remove from cart");
 			System.out.println("3. Show cart");
 			System.out.println("4. Checkout");
-			System.out.println("5. Search cart");
+			System.out.println("5. Search storage");
 			System.out.println("6. Exit");
 
 
@@ -30,10 +32,10 @@ public class Program {
 
 			case "1":
 				try {
-					item.listOfItems();
-					item.addItemArtNumber();
-					int index = Integer.parseInt(input.readLine());
-					cart.addItem(item.addRemove(index));
+					itemStorage.listOfItems();
+					itemStorage.addItemArtNumber();
+					int artNumber = Integer.parseInt(input.readLine());
+					cart.addItem(itemStorage.getItem(artNumber));
 				} catch (NumberFormatException | IndexOutOfBoundsException e) {
 					System.out.println("Invalid input. Numbers only!");
 				}
@@ -43,11 +45,9 @@ public class Program {
 					if (!cart.isEmpty()) {
 						cart.listOfItems();
                         cart.removeItem();
-                        int index = Integer.parseInt(input.readLine());
-                        item.addItem(cart.addRemove(index));
-						
-						
-						
+                        int artNumber = Integer.parseInt(input.readLine());
+                        cart.removeItem(artNumber);
+
 					} else {
 						System.out.println("Empty");
 					}
@@ -57,13 +57,29 @@ public class Program {
 				}
 				break;
 			case "3":
-				cart.displaycart();
+				cart.displayCart();
 				break;
 			case "4":
 				cart.checkOut();
 				break;
 			case "5":
-
+				String query = input.readLine();
+				Item foundItem = itemStorage.getItem(query);
+				
+				if(foundItem == null) {
+					try { 
+					
+					int queryInt = Integer.parseInt(query);
+					foundItem = itemStorage.getItem(queryInt);
+					}catch (Exception e){
+						System.out.println("The item was not found");
+					}
+				}
+				
+				if (foundItem != null) {
+				System.out.println("Found item: \n" + foundItem);
+				
+				}
 				break;
 			case "6":
 				System.exit(0);

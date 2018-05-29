@@ -20,6 +20,7 @@ public class Storage<T> {
         }
 
 	}
+	
 
 
 	public void listOfItems() {
@@ -31,20 +32,47 @@ public class Storage<T> {
 
 	}
 
-
 	public void addItem(Item item) {
-
 		itemList.add(item);
 
 	}
 
 
-	public Item addRemove(int artNumber) {
+	public Item getItem(int artNumber) {
+		for (Item item : itemList) {
+			if(artNumber == item.getArtNumber()) {
+				
+				return item;
+			}
+		}
 
-		Item item = itemList.get(artNumber);
-		itemList.remove(artNumber);
-		return item;
+		return null;
+	}
+	
+	public Item getItem(String description) {
+		for (Item item : itemList) {
+			
+			
+			if(item.getDescription().toLowerCase().trim().equals(description.toLowerCase().trim())) {
+				
+				return item;
+			}
+		}
 
+		return null;
+	}
+	
+	
+	public void removeItem(int artNumber) {
+		Item chosenItem = null;
+		for (Item item : itemList) {
+			if(artNumber == item.getArtNumber()) {
+				
+				chosenItem = item;
+				break;
+			}
+		}
+			itemList.remove(chosenItem);
 	}
 
 }
