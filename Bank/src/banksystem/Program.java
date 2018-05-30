@@ -10,8 +10,7 @@ public class Program {
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
 		BankAccount account = new BankAccount(0);
-		Transaction tx = new Transaction();
-		Worker worker = new Worker();
+
 		
 	}
 
