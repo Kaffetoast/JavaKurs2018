@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Collections {
 
@@ -25,11 +26,6 @@ public class Collections {
 		List<Integer> removeDupe = new ArrayList<Integer>();
 		Boolean exist = false;
 		removeDupe.clear();
-		
-		System.out.println("Input: ");
-		System.out.println(Arrays.toString(arr));
-		System.out.println("Output: ");
-		removeDupe.add(arr[0]);
 		
 		for (int i = 0; i < arr.length; i++) { 
 			
@@ -46,70 +42,71 @@ public class Collections {
             }
 		}
 		
-		System.out.println(removeDupe);
+		
+		System.out.println("Output: " +removeDupe);
 
 			}
 	
 
-			
-
 	public void removeSetDupe(int[] arr) {
 
 		Set<Integer> setRemove = new HashSet<Integer>();
-
 		for (int i = 0; i < arr.length; i++) { 
 			setRemove.add(arr[i]);
 			   
 			}
 		
-			System.out.println(Arrays.toString(arr));
-			System.out.println("Output:" +setRemove);
+			System.out.println("Input: " +Arrays.toString(arr));
+			System.out.println("Output: " +setRemove);
 		}
 		
 
 	public void addArrayListEnd(int[] arr, int addEnd) {
 		
 		 ArrayList<Integer> addArrayEnd = new ArrayList<>();
-		 
-		 
+
 			for (int i = 0; i < arr.length; i++) { 
 				addArrayEnd.add(arr[i]);
 			}
 			
 			addArrayEnd.add(addEnd);
 			System.out.println(addArrayEnd.toString());
-			
-		
 		
 	}
 
-	public void removeFirstInArray(int[] arr, int removeFirst) {
+
+	public void removeFirstValue(int[] arr, int value) {
 		
-		List<String> list = new ArrayList<String>();
-		list.remove(0);
-
-		System.out.println(Arrays.toString(arr));
-		System.out.println("Output:" +list.remove(removeFirst));
-	}
-
-
-	
-	public void hashMap(int[] index, String[] apples) {
+		ArrayList<Integer> fml = new ArrayList<>();
 		
+		boolean poopshoot = false;
+		
+		for (int i = 0; i < arr.length; i++) { 
+			if(poopshoot ||arr[i] != value) {
+				
+				fml.add(arr[i]);
+				
+			}
 
-			Map <Integer, String> numApples = new LinkedHashMap<>();
-
-			for (int i = 0; i < apples.length; i++) { 
-
-				numApples.put(index[i], apples[i]);
+			else {
+				poopshoot = true;
 
 			}
-			System.out.println(Arrays.toString(index));
-			System.out.println(Arrays.toString(apples));
-			System.out.println("Output");
-
-			numApples.forEach((key,value) -> System.out.println(key+":"+value));
-
 		}
+		
+		System.out.println("Output: " +fml);
+
+	}
+
+	public Map<Integer, String> arrayMap (int[] keys, String[] values) {
+
+		Map<Integer, String> map = new HashMap<Integer, String>();
+	
+		for (int i = 0; i < keys.length; i++) {
+			map.put(keys[i], values[i]);
+		}
+
+		return map;
+	}
 	
 }

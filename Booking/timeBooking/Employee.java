@@ -12,4 +12,18 @@ public class Employee extends BookingList {
 		
 	}
 	
+		
+		
+		public void printBookingList() {
+
+			System.out.println(name.toString());
+
+
+	    	for (BookingDateTime bookingDateTime : bookingList) {
+
+	    		System.out.println(bookingDateTime.toString());
+
+	    	}
+	}
+	
 }

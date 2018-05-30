@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Program {
@@ -13,7 +14,7 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 
 		
-		int[] arr = { 0, 8, 1, 2, 2, 1, 4, 7, 4, 7, 6, 3, 1, 9 };
+		int[] arr = { 1,2,3,4,4,4,4,5,5,5,6,6,7 };
 
 		int[] arrayResult;
 
@@ -34,6 +35,7 @@ public class Program {
 
 			if (choice == 1) {
 				arrayTypes.removeArrayDupe(arr);
+				
 
 			}
 
@@ -43,6 +45,7 @@ public class Program {
 			}
 
 			else if (choice == 3) {
+				System.out.println(Arrays.toString(arr));
 				System.out.println("Input:");
 				int addEnd = Integer.parseInt(input.readLine());
 				System.out.println("Output:");
@@ -51,20 +54,27 @@ public class Program {
 			}
 			
 			else if (choice == 4) {
+
+				System.out.println(Arrays.toString(arr));
 				System.out.println("Input:");
-				int removeFirst = Integer.parseInt(input.readLine());
-				System.out.println("Output:");
-				arrayTypes.removeFirstInArray(arr, removeFirst);
-			
+				int value = Integer.parseInt(input.readLine());
+				arrayTypes.removeFirstValue(arr, value);
 
 
 			}
 
 			else if (choice == 5){
-				String[] String = null;
-				arrayTypes.hashMap(arr, String);
+				
+				String[] values = { "One", "Two", "Three", "Four", "Five" };
+				int[] keys = { 1, 2, 3, 4, 5};
+
+				System.out.println(
+						"input: ints: " + Arrays.toString(keys) + " strings: " + Arrays.toString(values) + "\n");
+				Map<Integer, String> map = arrayTypes.arrayMap(keys, values);
+				
+				System.out.println("output: " + map.toString());
 			}
 		}
 	}
-
 }
+
