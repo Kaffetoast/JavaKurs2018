@@ -3,6 +3,7 @@ package banksystem;
 public class BankAccount {
 
 	private int balance;
+	private int amount;
 	
 	public BankAccount(int startBalance) {
 		balance = startBalance;

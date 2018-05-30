@@ -23,7 +23,7 @@ public class Transaction implements Runnable {
 		
 		ExecutorService es = Executors.newFixedThreadPool(5);
 		
-		Transaction[] workers = // retrieve worker instance
+		Transaction[] workers = null; // retrieve worker instance
 				
 			for (Transaction worker : workers) {
 				es.submit(worker);
