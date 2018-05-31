@@ -8,18 +8,18 @@ function fizzbuzz(a, b, c, d) {
 	var text = "";
 
 	for (var i = start; i < end; i++) {
-		if  (i %  3 === 0  && i %  4 === 0)  
+		if  (i %  fizz === 0  && i %  buzz === 0)  
 		{ 
 			   console.log("FIZZBUZZ");
 			   text += "FIZZBUZZ" + "<br>";
 		}
-		else if (i %  3 === 0)
+		else if (i %  fizz === 0)
 		{
 				console.log("FIZZ");
 				text += "FIZZ" + "<br>";
 				
 		}
-		else if (i %  4 === 0)  
+		else if (i %  buzz === 0)  
 		{
 			   console.log("BUZZ");
 			   text += "BUZZ" + "<br>";
