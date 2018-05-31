@@ -79,17 +79,17 @@ public class Collections {
 		
 		ArrayList<Integer> fml = new ArrayList<>();
 		
-		boolean poopshoot = false;
+		boolean removeFirst = false;
 		
 		for (int i = 0; i < arr.length; i++) { 
-			if(poopshoot ||arr[i] != value) {
+			if(removeFirst ||arr[i] != value) {
 				
 				fml.add(arr[i]);
 				
 			}
 
 			else {
-				poopshoot = true;
+				removeFirst = true;
 
 			}
 		}
