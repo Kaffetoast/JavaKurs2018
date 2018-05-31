@@ -29,27 +29,30 @@ public class Program {
 			
 			int choice = Integer.parseInt(input.readLine());
 
-			if (choice == 1) {
-				
-				
-
-			}
-
-			else if (choice == 2) {
-				
-				
-			}
-
-			else if (choice == 3) {
-
-				
-			}
+			switch (choice) {
 			
-			else if (choice == 4) {
+			case 1: 
+				
+				
+				break;
+			case 2:
+				
+				
+				break;
+			case 3:
+				
+				
+				break;
+			case 4:
+				
+				
+				break;
+			case 5:
+				
+				
+				break;
 
-
-
-
+			
 			}
 
 	}
