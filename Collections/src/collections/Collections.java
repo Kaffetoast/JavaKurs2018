@@ -42,7 +42,7 @@ public class Collections {
             }
 		}
 		
-		
+		System.out.println("Input:" +Arrays.toString(arr));
 		System.out.println("Output: " +removeDupe);
 
 			}

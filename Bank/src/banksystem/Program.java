@@ -11,9 +11,14 @@ public class Program {
 		
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
+		Bank bank = new Bank();
+		
+
+
+		
 		
 		while (true) {
-
+			
 			System.out.println(" [1]. Accounts");
 			System.out.println(" [2]. Balance on all accounts");
 			System.out.println(" [3]. Balance on one account");
@@ -28,7 +33,6 @@ public class Program {
 			switch (choice) {
 			
 			case 1: 
-				
 				
 				break;
 			case 2:

@@ -8,6 +8,7 @@ public class Transaction {
 	public String deposit;
 	public String withdraw;
 	double balance;
+	double amount;
 	
 	public Transaction(String deposit, String withdraw, double balance) {
 		this.deposit = deposit;
@@ -15,14 +16,15 @@ public class Transaction {
 		this.balance = balance;
 	}
 	
+
+	
 	
 	@Override
 	public String toString() {
 		return "deposit =" + deposit +
 				"withdraw=" + withdraw +
 				"balance=" + balance;
-		
-				
-		
 	}
+	
+	
 }

@@ -69,10 +69,10 @@ public class Program {
 				int[] keys = { 1, 2, 3, 4, 5};
 
 				System.out.println(
-						"input: ints: " + Arrays.toString(keys) + " strings: " + Arrays.toString(values) + "\n");
+						"input: " + Arrays.toString(keys) + " Nums: " + Arrays.toString(values) + "\n");
 				Map<Integer, String> map = arrayTypes.arrayMap(keys, values);
 				
-				System.out.println("output: " + map.toString());
+				System.out.println("Output: \n" + map.toString());
 			}
 		}
 	}

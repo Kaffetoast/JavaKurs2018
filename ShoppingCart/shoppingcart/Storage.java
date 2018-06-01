@@ -34,6 +34,7 @@ public class Storage<T> {
 
 	public void addItem(Item item) {
 		itemList.add(item);
+		itemList.remove(item);
 
 	}
 
