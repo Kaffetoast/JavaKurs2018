@@ -11,11 +11,9 @@ public class Program {
 		
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
-		BankAccount account = new BankAccount(0);
-
+		
 		while (true) {
 
-			System.out.println("");
 			System.out.println(" [1]. Accounts");
 			System.out.println(" [2]. Balance on all accounts");
 			System.out.println(" [3]. Balance on one account");
@@ -24,8 +22,6 @@ public class Program {
 			System.out.println(" [6]. Withdraw");
 			System.out.println(" [7]. Transfer to account");
 			System.out.println(" [8]. Lock account");
-			
-
 			
 			int choice = Integer.parseInt(input.readLine());
 
