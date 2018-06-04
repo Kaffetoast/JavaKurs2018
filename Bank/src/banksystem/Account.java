@@ -5,14 +5,13 @@ import java.util.ArrayList;
 public class Account {
 
 	double balance;
-	int accNum;
+	public int accNum;
 	public String accName;
 	boolean lock;
 	double amount;
 	
 	//map for accounts and balance?
 	ArrayList<String> transactions = new ArrayList<>();
-	
 	
 	
 	public int getAccNum() {
