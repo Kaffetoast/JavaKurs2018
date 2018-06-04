@@ -6,7 +6,7 @@ public class Account {
 
 	double balance;
 	public int accNum;
-	public String accName;
+	private String accName;
 	boolean lock;
 	double amount;
 	

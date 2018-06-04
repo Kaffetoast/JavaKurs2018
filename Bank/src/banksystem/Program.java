@@ -12,8 +12,9 @@ public class Program {
 
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-		Account account;
-
+		
+		
+		
 		Bank bank = new Bank();
 
 		while (true) {
@@ -28,24 +29,48 @@ public class Program {
 			System.out.println(" [8]. Lock account");
 
 		
-
+			
 			switch (input.readLine()) {
 			
 			case "1":
-				bank.addAccount("hej");
-				System.out.println("Account created");
+				System.out.print("Enter account name:");
+				bank.addAccount(input.readLine());
+				System.out.println("--Account successfully created!--");
 				break;
 			case "2":
 				bank.displayAllAccounts(bank.accountList);
+				if(bank.accountList.isEmpty()) {
+					System.out.println("--There are no accounts!--");
+				}
 				break;
 			case "3":
+				if(bank.accountList.isEmpty()) {
+					System.out.println("--There are no accounts!--");
+				}
+				
+				
+				
 				
 				break;
 			case "4":
-
+				
 				break;
 			case "5":
-
+				System.out.println("Deposit");
+				
+				break;
+				
+			case "6":
+				System.out.println("Withdraw");
+				
+				break;
+			case "7":
+				System.out.println("Transfer to account");
+				
+				break;
+			case "8":
+				System.out.println("Lock account");
+				
 				break;
 
 			default:
