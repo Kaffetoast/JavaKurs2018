@@ -14,9 +14,6 @@ public class Program {
 		Bank bank = new Bank();
 		
 
-
-		
-		
 		while (true) {
 			
 			System.out.println(" [1]. Accounts");
@@ -29,10 +26,12 @@ public class Program {
 			System.out.println(" [8]. Lock account");
 			
 			int choice = Integer.parseInt(input.readLine());
-
+			
+			
 			switch (choice) {
 			
 			case 1: 
+
 				
 				break;
 			case 2:
@@ -49,8 +48,9 @@ public class Program {
 				break;
 			case 5:
 				
-				
 				break;
+				
+				default:
 
 			
 			}

@@ -13,10 +13,16 @@ public class Account {
 	//map for accounts and balance?
 	ArrayList<String> transactions = new ArrayList<>();
 	
-	public int accNum() {
+	
+	
+	public int getAccNum() {
 		return accNum;
 	}
-	
+
+	public void setAccNum(int accNum) {
+		this.accNum = accNum;
+	}
+
 	public String getAccName() {
 		return accName;
 	}
@@ -37,8 +43,8 @@ public class Account {
 		this.lock = lock;
 	}
 	
-	public boolean getLock() {
-		return this.lock;
+	public void setLock(boolean lock) {
+		this.lock = lock;
 	}
 	
 	void deposit(double amount) {
@@ -53,6 +59,12 @@ public class Account {
 		}
 	}
 	
+	public void transactionHistory(ArrayList<String> transactions) {
+		
+		for (String tx : transactions) {
+			System.out.println(tx);
+		}
+	}
 	
 	
 }

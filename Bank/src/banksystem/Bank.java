@@ -11,10 +11,11 @@ public class Bank {
 		int accNum = 0;
 		
 		Account account = new Account();
+		accNum = accNum +1;
 		account.setBalance(0);
 		account.setAccName(accName);
-		accNum = accNum +1;
-		account.lock = false;
+		account.setAccNum(accNum);
+		account.setLock(false);
 		accountList.add(account);
 		
 	

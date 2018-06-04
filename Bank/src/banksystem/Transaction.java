@@ -16,8 +16,6 @@ public class Transaction {
 		this.balance = balance;
 	}
 	
-
-	
 	
 	@Override
 	public String toString() {
