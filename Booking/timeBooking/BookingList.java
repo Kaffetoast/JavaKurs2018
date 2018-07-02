@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class BookingList {
 
-	private ArrayList<BookingDateTime> bookingList = new ArrayList<BookingDateTime>();
+	protected ArrayList<BookingDateTime> bookingList = new ArrayList<BookingDateTime>();
 
 	public boolean checkBookingTime(BookingDateTime newBook) {
 
@@ -26,6 +26,7 @@ public class BookingList {
 
 				boolean d = newBook.getStartTime().isBefore(bookingList.get(i).getStartTime())
 						&& newBook.getStopTime().isAfter(bookingList.get(i).getStopTime());
+				
 
 				if (a || b || c || d) {
 
