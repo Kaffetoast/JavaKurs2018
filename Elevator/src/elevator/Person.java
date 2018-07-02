@@ -48,7 +48,6 @@ public class Person extends Thread {
      }
 		
 		
-=======
 
 		this.start();
 	}
@@ -85,7 +84,6 @@ public class Person extends Thread {
 			}
 		}
 
->>>>>>> d9467965099e62c0818e6f7ec3bc21cd9d0a217a
 	}
 
 
