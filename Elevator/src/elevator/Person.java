@@ -17,7 +17,7 @@ public class Person extends Thread {
 	Person(String name, int floor) {
 		this.name = name;
 		this.floor = floor;
-<<<<<<< HEAD
+
 		Program.visit_floors.add(floor);
 	}
 	
