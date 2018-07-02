@@ -17,7 +17,7 @@ public class Program {
 	public static void main(String[] args) throws ParseException, IOException {
 
 		boolean bookingGet;
-		BookingList thisBooking = new BookingList();
+		
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
 		List<Employee> Employees = new ArrayList<Employee>();
@@ -66,7 +66,7 @@ public class Program {
 						String time2 = input.readLine();
 						bookingStop = LocalTime.parse(time2, timeFormat);
 						
-						Employee chosenEmployee = null;
+						
 						boolean employeeChosen = false;
 						
 						while (!employeeChosen) {
@@ -80,26 +80,25 @@ public class Program {
 							String emp = input.readLine().trim().toLowerCase();
 
 							for (int i = 0; i < Employees.size(); i++) {
-								Employee teEmployee = Employees.get(i);
+								Employee chosenEmployee = Employees.get(i);
 
-								if (teEmployee.name.trim().toLowerCase().equals(emp)) {
-									
-									chosenEmployee = teEmployee;
+								if (chosenEmployee.name.trim().toLowerCase().equals(emp)) {
+							
+									bookingGet = chosenEmployee.bookings.addBooking(bookingStart, bookingStop, bookingDate, bookingPrice);
+									if (bookingGet == false) {
+										
+										System.out.print(" That time is currently unavailable" + "\n" + "\n");
+									}
 									employeeChosen = true;
 									break;
 								}
 							}
 						}
 
-						bookingGet = thisBooking.addBooking(bookingStart, bookingStop, bookingDate, bookingPrice, chosenEmployee);
-
-						if (bookingGet == false) {
 						
-							System.out.print(" That time is currently unavailable" + "\n" + "\n");
-						}
 
 					} catch (DateTimeParseException exc) {
-						System.out.println(" Input was wrong");
+						System.out.println("Input was wrong");
 					}
 
 				}
@@ -107,7 +106,10 @@ public class Program {
 			}
 
 			else if (choice.equals("2")) {
-				thisBooking.printBookingList();
+				for (Employee employee : Employees) {
+					employee.printBookingList();
+				}
+				
 
 			}
 

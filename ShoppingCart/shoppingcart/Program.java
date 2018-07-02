@@ -12,9 +12,17 @@ public class Program {
 
 		ShoppingCart cart = new ShoppingCart();
 		ItemStorage itemStorage = new ItemStorage();
-		itemStorage.initItems();
-
 		
+		
+
+	        String [] description = {"Ball", "Ring", "Hat"};
+	        Double [] price = {10.00d, 20.00d, 30.00d};
+	        
+	        for (int i=0; i < description.length; i++) {
+	            itemStorage.itemList.add(new Item(i+1, description[i], price[i]));
+	        }
+	       
+	        
 		
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
@@ -86,5 +94,5 @@ public class Program {
 			}
 		}
 	}
-
+	
 }

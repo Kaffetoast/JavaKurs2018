@@ -5,58 +5,47 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Storage<T> {
+public class Storage<T extends Item> {
 
-	public List<Item> itemList = new ArrayList<>();
+	public List<T> itemList = new ArrayList<>();
 
 
-	public void initItems() {
 
-        String [] description = {"Ball", "Ring", "Hat"};
-        Double [] price = {10.00d, 20.00d, 30.00d};
-        
-        for (int i=0; i < description.length; i++) {
-            this.itemList.add(new Item(i+1, description[i], price[i]));
-        }
-
-	}
-	
 
 
 	public void listOfItems() {
 
-		for (Item item : itemList) {
-			System.out.println(item);
+		for (T t : itemList) {
+			System.out.println(t);
 
 		}
 
 	}
 
-	public void addItem(Item item) {
-		itemList.add(item);
-		itemList.remove(item);
+	public void addItem(T t) {
+		itemList.add(t);
 
 	}
 
 
-	public Item getItem(int artNumber) {
-		for (Item item : itemList) {
-			if(artNumber == item.getArtNumber()) {
+	public T getItem(int artNumber) {
+		for (T t : itemList) {
+			if(artNumber == t.getArtNumber()) {
 				
-				return item;
+				return t;
 			}
 		}
 
 		return null;
 	}
 	
-	public Item getItem(String description) {
-		for (Item item : itemList) {
+	public T getItem(String description) {
+		for (T t : itemList) {
 			
 			
-			if(item.getDescription().toLowerCase().trim().equals(description.toLowerCase().trim())) {
+			if(t.getDescription().toLowerCase().trim().equals(description.toLowerCase().trim())) {
 				
-				return item;
+				return t;
 			}
 		}
 
@@ -65,11 +54,11 @@ public class Storage<T> {
 	
 	
 	public void removeItem(int artNumber) {
-		Item chosenItem = null;
-		for (Item item : itemList) {
-			if(artNumber == item.getArtNumber()) {
+		T chosenItem = null;
+		for (T t : itemList) {
+			if(artNumber == t.getArtNumber()) {
 				
-				chosenItem = item;
+				chosenItem = t;
 				break;
 			}
 		}
