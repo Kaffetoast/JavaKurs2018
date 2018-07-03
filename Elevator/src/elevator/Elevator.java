@@ -22,12 +22,14 @@ public class Elevator extends Thread {
 		//floorList.stream().map(object -> object.toString());
 	}
 
-	public int Randomm() {
+	public int Randomm(int min, int max) {
 		
 		if (rand == null) {
+
 			Integer randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
 			return randomNum;
 		}
+		return max;
 		
 		
 	}
