@@ -119,8 +119,8 @@ public class Program {
 						System.out.println("--How much?--");
 						try {
 							balance = Double.parseDouble(input.readLine());
-							if (bank.canWithdraw(balance, account)) {
-								System.out.println("--Balance can't go below zero--");
+							if (!bank.canWithdraw(balance, account)) {
+								System.out.println("--Insufficent balance--");
 								break;
 							}
 						} catch (NumberFormatException e) {
