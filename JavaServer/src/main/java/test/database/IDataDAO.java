@@ -10,11 +10,15 @@ public interface IDataDAO {
 	
     public List<Books> booksFetch();
 
-	void insertBook(Books book);
+	public void insertBook(Books book);
 
-	int editBook(Books book);
+	public int editBook(Books book);
 
 	int deleteBook(int id);
+
+	List<Books> getSelectedBooks(String search);
+
+	Books getBookById(int id);
 
 	
 

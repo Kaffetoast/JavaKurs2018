@@ -34,17 +34,27 @@ public class DataDAO implements IDataDAO {
     @Override
     public int editBook(Books book) {
     	String SQL = "UPDATE books SET author = ?, title = ?, year = ? WHERE id = ?";
-    	return jdbcTemplate.update(SQL, book.getAuthor(), book.getTitle(), book.getYear());
+    	return jdbcTemplate.update(SQL, book.getAuthor(), book.getTitle(), book.getYear(), book.getId());
     }
     
     @Override
     public int deleteBook(int id) {
-    	String SQL = "DELTE FROM books WHERE id = "+id+	"";
+    	String SQL = "DELETE FROM books WHERE id = "+id+	"";
 		return jdbcTemplate.update(SQL);
     	
     }
     
+    @Override
+    public Books getBookById(int id) {
+    	String query = "SELECT * FROM books WHERE id=?";
+    	return jdbcTemplate.queryForObject(query, new Object[]{id}, new BookMapper());
+    }
     
-
-
+    @Override
+    public List<Books> getSelectedBooks(String search) {
+    	String prepared = "'%" +search+ "%'"; 
+    	String query = "SELECT * from books WHERE title LIKE " +prepared;
+    	
+    	return (List<Books>) jdbcTemplate.query(query, new BookMapper());
+    }
 }

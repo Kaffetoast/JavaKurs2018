@@ -51,10 +51,10 @@ public class Program {
 			case "2":
 				try {
 					if (!cart.isEmpty()) {
-						cart.listOfItems();
+
                         cart.removeItem();
                         int artNumber = Integer.parseInt(input.readLine());
-                        cart.removeItem(artNumber);
+                        cart.removeItem(itemStorage.getItem(artNumber));
 
 					} else {
 						System.out.println("Empty");

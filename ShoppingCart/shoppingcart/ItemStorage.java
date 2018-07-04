@@ -17,5 +17,41 @@ public class ItemStorage extends Storage<Item> {
 	}
 	
 
+	public Item getItem(int artNumber) {
+		for (Item item : itemList) {
+			if(artNumber == item.getArtNumber()) {
+				
+				return item;
+			}
+		}
 
+		return null;
+	}
+	
+	public Item getItem(String description) {
+		for (Item item : itemList) {
+			
+			
+			if(item.getDescription().toLowerCase().trim().equals(description.toLowerCase().trim())) {
+				
+				return item;
+			}
+		}
+
+		return null;
+	}
+	
+
+
+
+	public void listOfItems() {
+
+		for (Item item : itemList) {
+			System.out.println(item);
+
+		}
+
+	}
+	
 }
+
