@@ -9,6 +9,15 @@ public interface IDataDAO {
 	
 	
     public List<Books> booksFetch();
+
+	void insertBook(Books book);
+
+	int editBook(Books book);
+
+	int deleteBook(int id);
+
+	
+
     
     
 }
