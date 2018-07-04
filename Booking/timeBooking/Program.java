@@ -22,9 +22,9 @@ public class Program {
 
 		List<Employee> Employees = new ArrayList<Employee>();
 		
-		Employees.add(new Employee("Stefano"));
-		Employees.add(new Employee("Miguel"));
-		Employees.add(new Employee("José"));
+		Employees.add(new Employee("Emil"));
+		Employees.add(new Employee("Simon"));
+		Employees.add(new Employee("Ronnie"));
 		
 		while (true) {
 
@@ -38,7 +38,7 @@ public class Program {
 				LocalDate bookingDate = null;
 				LocalTime bookingStart = null;
 				LocalTime bookingStop = null;
-				double bookingPrice = 0;
+
 
 				while (bookingDate == null || bookingStart == null || bookingStop == null) {
 
@@ -84,7 +84,7 @@ public class Program {
 
 								if (chosenEmployee.name.trim().toLowerCase().equals(emp)) {
 							
-									bookingGet = chosenEmployee.bookings.addBooking(bookingStart, bookingStop, bookingDate, bookingPrice);
+									bookingGet = chosenEmployee.bookings.addBooking(bookingStart, bookingStop, bookingDate);
 									if (bookingGet == false) {
 										
 										System.out.print(" That time is currently unavailable" + "\n" + "\n");

@@ -36,7 +36,7 @@ public class Bookings {
 		return true;
 	}
 
-	public boolean addBooking(LocalTime starttime, LocalTime stoptime, LocalDate date, double price) {
+	public boolean addBooking(LocalTime starttime, LocalTime stoptime, LocalDate date) {
 
 		BookingDateTime booking = new BookingDateTime();
 
