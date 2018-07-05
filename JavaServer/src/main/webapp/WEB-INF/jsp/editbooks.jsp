@@ -7,13 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Books</title>
 </head>
 <body>
 
 
 
-<h3>Välkommen, Uppdatera bok</h3>
+<h3>Update books</h3>
 
 <form:form method="POST" action="/editsave" modelAttribute="Book"> 
          <table>
@@ -21,16 +21,16 @@
              <td><form:input id="id"  hidden="true" path="id"/></td>
              <tr>
             <tr>
-                <td><form:label path="title">Boktitel</form:label></td>
-                <td><form:input value="${book.getTitle()}" path="title"/></td>                           
+                <td><form:label path="title">Titles</form:label></td>
+                <td><form:input value="${books.getTitle()}" path="title"/></td>                           
             </tr>
             <tr>
-                <td><form:label path="author">Författare</form:label></td>
-                <td><form:input value="${book.getAuthor()}" path="author"/></td>
+                <td><form:label path="author">Author</form:label></td>
+                <td><form:input value="${books.getAuthor()}" path="author"/></td>
             </tr>
             <tr>
-                <td><form:label path="published">Utgivningsår</form:label></td>
-                <td><form:input value="${book.getPublished()}" path="published"/></td>
+                <td><form:label path="published">Year</form:label></td>
+                <td><form:input value="${books.getYear()}" path="published"/></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Submit"/></td>

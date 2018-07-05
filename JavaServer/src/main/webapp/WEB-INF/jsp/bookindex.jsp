@@ -6,21 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Books</title>
 </head>
 <body>
 
 <header>
-[<a href="/books">Visa boklista</a>]
-[<a href="/addbook">Lägg till ny bok</a>] 
+[<a href="/books">Show books</a>]
+[<a href="/addbook">Add a book</a>] 
 </header>
 	
 	
 <div class="container">
- 		<h2>Böcker</h2>    
+ 		<h2>Books</h2>    
  		
  		<form action="/books">
-              Sök böcker: <input type="text" name="search"><br>
+              Search books: <input type="text" name="search"><br>
               <input type="submit" value="Sök">
         </form>
  		
@@ -28,19 +28,19 @@
  		 
   		<table class="table table-condensed">
     		<thead>
-      			<th>Titel</th>
-        		<th>Författare</th>
-        		<th>Utgivningsår</th>
+      			<th>Title</th>
+        		<th>Author</th>
+        		<th>Year published</th>
     		</thead>
     	<tbody>
       		
       		<c:forEach items="${books}" var="book">
       		    <tr>
-        		<td>${book.getTitle()}</td> 
-        		<td>${book.getAuthor()}</td>
-        		<td>${book.getPublished()}</td>
-        		<td><a href="editbook/${book.getId()}">Ändra</a></td> 
-        		<td><a href="deletebook/${book.getId()}">Ta bort</a></td> 
+        		<td>${books.getTitle()}</td> 
+        		<td>${books.getAuthor()}</td>
+        		<td>${books.geYear()}</td>
+        		<td><a href="editbook/${books.getId()}">Edit</a></td> 
+        		<td><a href="deletebook/${books.getId()}">Delete</a></td> 
         		</tr>
         	</c:forEach>
       		

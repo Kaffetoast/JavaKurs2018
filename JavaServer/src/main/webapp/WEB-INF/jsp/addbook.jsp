@@ -8,26 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Books</title>
 </head>
 <body>
 
 
 
-<h3>Välkommen, Lägg till en ny bok</h3>
+<h3>VAdd a book</h3>
 
 <form:form method="POST" action="/addbook" modelAttribute="Book">
          <table>
             <tr>
-                <td><form:label path="title">Boktitel</form:label></td>
+                <td><form:label path="title">Title</form:label></td>
                 <td><form:input path="title"/></td>
             </tr>
             <tr>
-                <td><form:label path="author">Författare</form:label></td>
+                <td><form:label path="author">Author</form:label></td>
                 <td><form:input path="author"/></td>
             </tr>
             <tr>
-                <td><form:label path="published">Utgivningsår</form:label></td>
+                <td><form:label path="published">Year</form:label></td>
                 <td><form:input path="published"/></td>
             </tr>
             <tr>
