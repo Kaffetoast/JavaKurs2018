@@ -36,7 +36,7 @@ class AccountTests {
 		banktest.addAccount(accName);
 		account = banktest.getAccount(1);
 		account.setBalance(0);
-		account.depositBalance(100, account);
+		account.depositBalance(100);
 		Assert.assertTrue(100 == account.getBalance());
 		
 	}
@@ -47,7 +47,7 @@ class AccountTests {
 		banktest.addAccount(accName);
 		account = banktest.getAccount(1);
 		account.setBalance(500);
-		account.withdrawBalance(500, account);
+		account.withdrawBalance(500);
 		Assert.assertFalse(500 == account.getBalance());
 	
 	}

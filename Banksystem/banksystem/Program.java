@@ -54,7 +54,7 @@ public class Program {
 					bank.displayAllAccounts(bank.accountList);
 					try {
 						bank.displayAccountBalance(bank.getAccount(Integer.parseInt(input.readLine())));
-					} catch (NumberFormatException e) {
+					} catch (NumberFormatException | NullPointerException e) {
 
 					}
 				}
@@ -97,8 +97,7 @@ public class Program {
 					} else {
 						System.out.println("--Account" + account + "is missing--");
 					}
-				} catch (NumberFormatException e) {
-					System.out.println("--No--");
+				} catch (NumberFormatException | NullPointerException e) {
 					continue;
 				}
 
@@ -124,8 +123,8 @@ public class Program {
 					} else {
 						System.out.println("--Account" + account + "is missing--");
 					}
-				} catch (NumberFormatException e) {
-					System.out.println("--No--");
+				} catch (NumberFormatException | NullPointerException e) {
+					System.out.println("--Insufficent balance--");
 					continue;
 				}
 
@@ -149,11 +148,13 @@ public class Program {
 									if (chosenAccount1.hasAmount(balance)) {
 										bank.transferBetweenAccounts(chosenAccount1, chosenAccount2, balance);
 										break;
+									} else {
+										System.out.println("--Not enough money on account--");
 									}
 								} 
 							
 							}
-						}  catch (NumberFormatException e) {
+						}  catch (NumberFormatException | NullPointerException e) {
 							System.out.println("--Numbers Only!--");
 							continue;
 				}

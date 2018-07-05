@@ -51,7 +51,6 @@ class BankTests {
 	void TransferBalance() {
 		
 		banktest.addAccount(accName);
-		banktest.addAccount(accName);
 		chosenAccount1 = banktest.getAccount(1);
 		chosenAccount1.setBalance(500);
 		chosenAccount2 = banktest.getAccount(2);
