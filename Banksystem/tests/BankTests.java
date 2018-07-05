@@ -13,6 +13,7 @@ import banksystem.Bank;
 class BankTests {
 	
 	Bank banktest = new Bank();
+	Account accounttest = new Account();
 	
 	
 	String accName;

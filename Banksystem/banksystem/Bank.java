@@ -29,14 +29,6 @@ public class Bank {
 		return null;
 	}
 	
-	public boolean canWithdraw(double balance, int accNum) {
-		
-		Account account = getAccount(accNum);
-		if((account.getBalance() - balance) < 0 && balance > 0) {
-			return false;
-		}
-			return true;
-	}
 	
 	
 	public void displayAllAccounts(ArrayList<Account> accountList) {
@@ -71,9 +63,9 @@ public class Bank {
 	
 
 	public void transferBetweenAccounts(Account fromAccount, Account toAccount, double amount) {
-		    if (fromAccount.getBalance() >= amount) {  
-		    	fromAccount.withdrawBalance(amount,fromAccount);
-		    	toAccount.depositBalance(amount, toAccount);
+		    if (fromAccount.hasAmount(amount)) {  
+		    	fromAccount.withdrawBalance(amount);
+		    	toAccount.depositBalance(amount);
 
 		    } else { 
 

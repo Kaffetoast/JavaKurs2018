@@ -5,7 +5,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 public class Program {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -17,6 +16,7 @@ public class Program {
 		int account = 0;
 		int account2 = 0;
 		double balance = 0;
+		;
 		Bank bank = new Bank();
 
 		while (true) {
@@ -83,25 +83,19 @@ public class Program {
 				try {
 					account = Integer.parseInt(input.readLine());
 					if (bank.accountExists(account)) {
-						System.out.println("--How much?--");
-						try {
-							balance = Double.parseDouble(input.readLine());
-							if (bank.canWithdraw(balance, account)) {
-
-								System.out.println("--Can't deposit 0--");
-								break;
-							}
-						} catch (NumberFormatException e) {
-							System.out.println("--Numbers Only--");
-							continue;
-						}
-
 						chosenAccount = bank.getAccount(account);
-						if (chosenAccount != null) {
-							chosenAccount.depositBalance(balance, chosenAccount);
+						System.out.println("--How much?--");
+
+						balance = Double.parseDouble(input.readLine());
+						boolean success = chosenAccount.depositBalance(balance);
+						if (success) {
+							System.out.println("Success");
 						} else {
-							System.out.println("--Account" + account + "is missing--");
+							System.out.println("Failed");
 						}
+
+					} else {
+						System.out.println("--Account" + account + "is missing--");
 					}
 				} catch (NumberFormatException e) {
 					System.out.println("--No--");
@@ -116,28 +110,22 @@ public class Program {
 				try {
 					account = Integer.parseInt(input.readLine());
 					if (bank.accountExists(account)) {
-						System.out.println("--How much?--");
-						try {
-							balance = Double.parseDouble(input.readLine());
-							if (!bank.canWithdraw(balance, account)) {
-								System.out.println("--Insufficent balance--");
-								break;
-							}
-						} catch (NumberFormatException e) {
-							System.out.println("--Must use numbers--");
-							continue;
-						}
-
 						chosenAccount = bank.getAccount(account);
-						if (chosenAccount != null) {
-							chosenAccount.withdrawBalance(balance, chosenAccount);
+						System.out.println("--How much?--");
+
+						balance = Double.parseDouble(input.readLine());
+						boolean success = chosenAccount.withdrawBalance(balance);
+						if (success) {
+							System.out.println("Success");
 						} else {
-							System.out.println("--Account" + account + "is missing--");
+							System.out.println("Failed");
 						}
 
+					} else {
+						System.out.println("--Account" + account + "is missing--");
 					}
 				} catch (NumberFormatException e) {
-					System.out.println("--Numbers Only--");
+					System.out.println("--No--");
 					continue;
 				}
 
@@ -146,43 +134,28 @@ public class Program {
 				System.out.println("--Which account would you like to transfer from?--");
 				bank.displayAllAccountsAndBalance(bank.accountList);
 				try {
-					account = Integer.parseInt(input.readLine());
+					account = Integer.parseInt(input.readLine()); //first account
 					if (bank.accountExists(account)) {
 						System.out.println("--Which account would you like to transfer to?--");
-						try {
-							account2 = Integer.parseInt(input.readLine());
+
+							account2 = Integer.parseInt(input.readLine()); //second account
 							if (bank.accountExists(account2)) {
 								System.out.println("--How much would you like to transfer?--");
-								try {
-									balance = Double.parseDouble(input.readLine());
-									if (bank.canWithdraw(balance, account)) {
-										System.out.println("--Must be higher than 0--");
-										break;
-									}
-								} catch (NumberFormatException e) {
-									System.out.println("--Balance with Numbers Only!--");
-									continue;
-
-								}
-
+									
 								chosenAccount1 = bank.getAccount(account);
 								chosenAccount2 = bank.getAccount(account2);
-
-								bank.transferBetweenAccounts(chosenAccount1, chosenAccount2, balance);
-
+								
+									balance = Double.parseDouble(input.readLine()); //money to transfer
+									if (chosenAccount1.hasAmount(balance)) {
+										bank.transferBetweenAccounts(chosenAccount1, chosenAccount2, balance);
+										break;
+									}
+								} 
+							
 							}
-						} catch (NumberFormatException e) {
+						}  catch (NumberFormatException e) {
 							System.out.println("--Numbers Only!--");
 							continue;
-
-						}
-
-					}
-
-				} catch (NumberFormatException e) {
-					System.out.println("--Numbers Only!--");
-					continue;
-
 				}
 
 				break;

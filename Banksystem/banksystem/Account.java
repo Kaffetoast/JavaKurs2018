@@ -5,17 +5,20 @@ import java.util.ArrayList;
 
 public class Account {
 
+	public ArrayList<Account> accountList = new ArrayList<>();
+
+	
+	Account account;
 	double balance = 0;
 	public int accNum;
 	private String accName;
-	double amount;
 	boolean lock;
 	String withdraw;
 	String deposit;
 	 
 	
 	public int getAccNum() {
-		return accNum;
+		return this.accNum;
 	}
 
 	public void setAccNum(int accNum) {
@@ -23,7 +26,7 @@ public class Account {
 	}
 
 	public String getAccName() {
-		return accName;
+		return this.accName;
 	}
 
 	public void setAccName(String accName) {
@@ -31,7 +34,7 @@ public class Account {
 	}
 
 	public double getBalance() {
-		return balance;
+		return this.balance;
 	}
 	
 	public void setBalance(double balance) {
@@ -40,33 +43,47 @@ public class Account {
 	
    
 
-	public synchronized void depositBalance(double depositBalance, Account account) {
-		
-		 {
-			 this.balance += depositBalance;				   
-		 }
-		
-		 toTransactionsList("Deposit: " + depositBalance + " to Account "  + account.getAccNum());
+	public synchronized boolean depositBalance(double depositBalance) {
+
+		if(depositBalance >= 0) {
+			this.balance += depositBalance;	
+			 	toTransactionsList("Deposit: " + depositBalance + " to Account "  + account.getAccNum());
+			 	
+			 	return true;
+		}
+		return false;
 		
 	}
+	
+	public synchronized boolean withdrawBalance(double withdrawAmount) {
+		if (lock) {
+			System.out.println("--Is locked--");
+			return false;
+		} 
+		
+		//Har jag 500 kr?
+		//Om ja: Dra av 500kr från konto
+		//Annars: Dra inte av
+		
+		if(hasAmount(withdrawAmount)) {
+			
+			 account.balance -= withdrawAmount;
+			 toTransactionsList("Withdraw: " + withdrawAmount + " from Account "  + account.getAccNum());
+			 
+			 return true;
+			
+		} else {
+		
+		System.out.println("Account Number: " +account.getAccNum() + "\n" + "Account name: " 
+				+account.getAccName() + "\n" + "Balance: " + account.getBalance() + "\n"); 
+		return false;
+		}
+	}
+	
 
 	public void lockAccont(boolean lock, Account account) {
 		this.lock = lock;
 		
-	}
-	
-	public synchronized void withdrawBalance(double withdrawBalance, Account account) {
-		if (!lock) {
-		   {
-		      account.balance -= withdrawBalance;
-		   }
-		   
-		   toTransactionsList("Withdraw: " + withdrawBalance + " from Account "  + account.getAccNum());
-		} else {
-			System.out.println("Account Number: " +account.getAccNum() + "\n" + "Account name: " 
-					+account.getAccName() + "\n" + "Balance: " + account.getBalance() + "\n");
-			System.out.println("--Is locked--");
-		}
 	}
 	
 
@@ -101,6 +118,15 @@ public class Account {
 		transactionList.add(transaction);
 	    
 	}
+
+	public boolean hasAmount(double amount) {
+
+		if(getBalance() - amount < 0 || amount < 0) { //if I don't have enough money, return false
+			return false;
+		}
+			return true; //Return true if I have enough money
+	}
+	
 	
 	
 	
