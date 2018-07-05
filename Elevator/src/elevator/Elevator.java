@@ -1,10 +1,10 @@
 package elevator;
 
-import java.util.ArrayList;
+
 import java.util.HashSet;
-import java.util.Random;
+
 import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 public class Elevator implements Runnable {
 
@@ -17,8 +17,6 @@ public class Elevator implements Runnable {
 	public int currentFloor = 1;
 	public Set<Integer> buttonList = new HashSet<>();
 
-	public Elevator() {
-	}
 
 	Elevator(int bottomFloor, int topFloor) {
 		super();
@@ -66,18 +64,19 @@ public class Elevator implements Runnable {
 		this.currentFloor = currentFloor;
 	}
 
-	public synchronized Set<Integer> getButtonList() {
-		return buttonList;
-	}
 
 	public synchronized void setButtonList(Set<Integer> buttonList) {
 		this.buttonList = buttonList;
+	}
+	
+	public synchronized Set<Integer> getButtonList() {
+		return buttonList;
 	}
 
 	public synchronized void removeButton(int value) {
 		this.buttonList.remove(value);
 	}
-	public synchronized void addButton(int value) {
+	public synchronized void pushButton(int value) {
 		this.buttonList.add(value);
 	}
 
@@ -95,7 +94,7 @@ public class Elevator implements Runnable {
 				try {
 					elevatorMoving();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 			}

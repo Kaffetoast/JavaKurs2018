@@ -1,19 +1,17 @@
 package elevator;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.Random;
 
 public class Person implements Runnable {
 
 
 	String name;
-	public int onThisFloor;
-	public int toThatFloor;
+	private int onThisFloor;
+	private int toThatFloor;
 	boolean inElevator = false;
 	boolean startFloor = false;
 	private boolean endFloor = false;
-	Elevator elevator;
+	public Elevator elevator;
 
 	public int randomNumber(int min, int max) {
 
@@ -23,58 +21,54 @@ public class Person implements Runnable {
 
     }
 
+    @Override
+    public void run() {
 
-	@Override
-	public void run() {
+        while (true) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
 
-		while (true) {
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+                e.printStackTrace();
+            }
+            if (!startFloor) {
+                if (!isInElevator()  && !elevator.isElevatorDoorOpen()) {
 
-			if (!startFloor) {
-				if (!isInElevator() && !elevator.isElevatorDoorOpen()) {
-					elevator.addButton(onThisFloor);
-					startFloor = true;
+                    elevator.pushButton(onThisFloor);
+                    startFloor = true;
+                }
+            }
 
-				}
-			}
+            if (onThisFloor == elevator.getCurrentFloor() && elevator.isElevatorDoorOpen()) {
+                if (!endFloor) {
+                	setInElevator(true);
+                	setRandomEndFloor();
+                    elevator.pushButton(toThatFloor);
+                    endFloor = true;
+                    System.out.println("[Elevator opens "  + name + ", steps in]" );
+                    System.out.println("[ " +name + " wants to go to floor " + toThatFloor + " ]");
+                }
+            }
 
-			if (onThisFloor == elevator.getCurrentFloor() && elevator.isElevatorDoorOpen()) {
-				if (!endFloor) {
-					setInElevator(true);
-					setRandomEndFloor();
-						elevator.addButton(toThatFloor);
-						endFloor = true;
-						System.out.println(name + "Gets in");
-				}
-			}
-			
-			if(isInElevator() && !elevator.isElevatorDoorOpen() && elevator.currentFloor != toThatFloor); {
-				
-			}
-			
-			if(toThatFloor == elevator.getCurrentFloor() && elevator.isElevatorDoorOpen());  {
-				
-				setInElevator(false);
-				System.out.println("Elevator opens and" + name + "Gets out");
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+            if (isInElevator()  && !elevator.isElevatorDoorOpen() && elevator.currentFloor != toThatFloor) {
+            }
 
-				setOnThisFloor(toThatFloor);
-                elevator.addButton(onThisFloor);
+            if (toThatFloor == elevator.getCurrentFloor() && elevator.isElevatorDoorOpen()) {
+
+            	setInElevator(false);
+                System.out.println("[Door open " + name + " gets out]");
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+
+                    e.printStackTrace();
+                }
+                setOnThisFloor(toThatFloor);
+                elevator.pushButton(onThisFloor);
                 endFloor = false;
-			}
-		}
-	}
+            }
+        }
+    }
 	
 	Person(String name, Elevator elevator) {
 		super();

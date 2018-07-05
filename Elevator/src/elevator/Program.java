@@ -5,11 +5,10 @@ public class Program {
 	public static void main(String[] args) {
 		
 		
-		Elevator elevator = new Elevator(1,10);
+		Elevator elevator = new Elevator(1,20);
 		System.out.println("Elevator started");
 
-		Thread elevatorThread = new Thread(elevator);
-		elevatorThread.start();
+	
 		
 
 		Person p1 = new Person("Emil", elevator);
@@ -23,6 +22,8 @@ public class Program {
 		Thread person3 = new Thread(p3);
 		person3.start();
 		
+		Thread elevatorThread = new Thread(elevator);
+		elevatorThread.start();
 		
 	}
 
