@@ -59,7 +59,7 @@ class AccountTests {
 		banktest.addAccount(accName);
 		account = banktest.getAccount(1);
 		accounttest.setBalance(100);
-		accounttest.depositBalance(100, account);
+		accounttest.depositBalance(100);
 		Assert.assertFalse(501 == account.getBalance());
 		
 	}
@@ -72,7 +72,7 @@ class AccountTests {
                 @Override
                 public void run() {
                     for(int i = 0; i < 100; i++) {
-                        accounttest.depositBalance(100, accounttest);
+                        accounttest.depositBalance(100);
                     }
                     latch.countDown();
                 }
@@ -95,7 +95,7 @@ class AccountTests {
 		banktest.addAccount(accName);
 		accounttest = banktest.getAccount(1);
 		accounttest.setBalance(500);
-		accounttest.withdrawBalance(200, accounttest);
+		accounttest.withdrawBalance(200);
 		Assert.assertTrue(300 == accounttest.getBalance());
 	
 	}
@@ -111,7 +111,7 @@ class AccountTests {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    accounttest.withdrawBalance(100, accounttest);
+                    accounttest.withdrawBalance(100);
                     latch.countDown();
                 }
             });
