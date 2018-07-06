@@ -21,5 +21,7 @@ public class Storage<T> {
 	public void removeItem(T item) {
 		itemList.remove(item);
 	}
+	
+	
 
 }

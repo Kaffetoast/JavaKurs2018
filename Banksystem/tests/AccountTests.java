@@ -58,7 +58,7 @@ class AccountTests {
 			
 		banktest.addAccount(accName);
 		account = banktest.getAccount(1);
-		account.setBalance(100);
+		accounttest.setBalance(100);
 		accounttest.depositBalance(100, account);
 		Assert.assertFalse(501 == account.getBalance());
 		
@@ -67,8 +67,7 @@ class AccountTests {
 	
 	@Test
 	void depositToAccountMulitThread() {
-		accounttest.setBalance(500);
-		for(int i = 0; i < THREADS; i++) {
+        for(int i = 0; i < THREADS; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -82,7 +81,7 @@ class AccountTests {
         executorService.shutdown();
         try {
             latch.await();
-            assertEquals(THREADS*10000, accounttest.getBalance(), 500);
+            assertEquals(THREADS*10000, accounttest.getBalance());
 
         } catch(InterruptedException e) {
 
@@ -112,9 +111,7 @@ class AccountTests {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    for(int i = 0; i < 100; i++) {
-                    	accounttest.withdrawBalance(100, account);
-                    }
+                    accounttest.withdrawBalance(100, accounttest);
                     latch.countDown();
                 }
             });
@@ -122,8 +119,8 @@ class AccountTests {
         executorService.shutdown();
         try {
             latch.await();
-            assertEquals(0, accounttest.getBalance(), 400);
-        } catch(InterruptedException  e) {
+            assertEquals(0, accounttest.getBalance());
+        } catch(InterruptedException e) {
 
         }
     }
