@@ -33,7 +33,7 @@ public class DataDAO implements IDataDAO {
     
     @Override
     public int editBook(Books book) {
-    	String SQL = "UPDATE books SET author = ?, title = ?, year = ? WHERE id = ?";
+    	String SQL = "UPDATE books SET author_id = ?, title = ?, year = ? WHERE id = ?";
     	return jdbcTemplate.update(SQL, book.getAuthor(), book.getTitle(), book.getYear(), book.getId());
     }
     
@@ -46,7 +46,7 @@ public class DataDAO implements IDataDAO {
     
     @Override
     public Books getBookById(int id) {
-    	String query = "SELECT * FROM books WHERE id=?";
+    	String query = "SELECT * FROM books WHERE id = ?";
     	return jdbcTemplate.queryForObject(query, new Object[]{id}, new BookMapper());
     }
     
@@ -57,4 +57,6 @@ public class DataDAO implements IDataDAO {
     	
     	return (List<Books>) jdbcTemplate.query(query, new BookMapper());
     }
+    
+    
 }

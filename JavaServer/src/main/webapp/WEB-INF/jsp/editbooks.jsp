@@ -15,7 +15,7 @@
 
 <h3>Update books</h3>
 
-<form:form method="POST" action="/editsave" modelAttribute="Book"> 
+<form:form method="POST" action="/savebook" modelAttribute="books"> 
          <table>
             <tr>
              <td><form:input id="id"  hidden="true" path="id"/></td>
@@ -29,12 +29,11 @@
                 <td><form:input value="${books.getAuthor()}" path="author"/></td>
             </tr>
             <tr>
-                <td><form:label path="published">Year</form:label></td>
-                <td><form:input value="${books.getYear()}" path="published"/></td>
+                <td><form:label path="year">Year</form:label></td>
+                <td><form:input value="${books.getYear()}" path="year"/></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Submit"/></td>
             </tr>
         </table>
-  </form:form>>
   </form:form>

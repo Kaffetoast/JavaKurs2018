@@ -14,9 +14,9 @@
 
 
 
-<h3>VAdd a book</h3>
+<h3>Add a book</h3>
 
-<form:form method="POST" action="/addbook" modelAttribute="Book">
+<form:form method="POST" action="/addbook" modelAttribute="books">
          <table>
             <tr>
                 <td><form:label path="title">Title</form:label></td>

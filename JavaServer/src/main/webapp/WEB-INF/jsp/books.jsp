@@ -11,7 +11,7 @@
 <body>
 
 <header>
-[<a href="/books">Show books</a>]
+[<a href="/bookindex">Show books</a>]
 [<a href="/addbook">Add a book</a>] 
 </header>
 	
@@ -28,20 +28,23 @@
  		 
   		<table class="table table-condensed">
     		<thead>
-      			<th>Title</th>
-        		<th>Author</th>
-        		<th>Year published</th>
+    			<tr>
+	      			<th>Title</th>
+	        		<th>Author</th>
+	        		<th>Year published</th>
+        		</tr>
     		</thead>
     	<tbody>
       		
-      		<c:forEach items="${books}" var="book">
+      		<c:forEach items="${books}" var="books">
       		    <tr>
         		<td>${books.getTitle()}</td> 
         		<td>${books.getAuthor()}</td>
-        		<td>${books.geYear()}</td>
-        		<td><a href="editbook/${books.getId()}">Edit</a></td> 
-        		<td><a href="deletebook/${books.getId()}">Delete</a></td> 
-        		</tr>
+        		<td>${books.getYear()}</td>
+        		
+        		<td><a href="/editbooks/${books.getId()}">Edit</a></td> 
+        		<td><a href="/deleteBook/${books.getId()}">Delete</a></td> 
+				</tr>
         	</c:forEach>
       		
     	</tbody>
