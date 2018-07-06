@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Bookings {
 
-	protected ArrayList<BookingDateTime> bookingList = new ArrayList<BookingDateTime>();
+	public ArrayList<BookingDateTime> bookingList = new ArrayList<BookingDateTime>();
 
 	public boolean checkBookingTime(BookingDateTime newBook) {
 

@@ -44,6 +44,22 @@ class BookingsTest {
 		
 	}
 	
+	@Test
+	void addBooking() {
+		
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		date = "2018-04-10";
+		LocalDate bookingDate = LocalDate.parse(date, dateFormat);
+		DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
+		time1 = "10:00";
+		LocalTime timeStart = LocalTime.parse(time1, timeFormat);
+		time2 = "11:00";
+		LocalTime timeStop = LocalTime.parse(time2, timeFormat);
+		
+		Assert.assertTrue(bookingsTest.addBooking(timeStart, timeStop , bookingDate));
+		
+	}
+	
 	
 
 

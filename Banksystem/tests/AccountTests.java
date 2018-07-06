@@ -20,9 +20,6 @@ import banksystem.Bank;
 
 class AccountTests {
 
-
-	
-
 	public ArrayList<Account> accountList = new ArrayList<>();
 	public ArrayList<String> transactionList = new ArrayList<String>();
 	
@@ -40,7 +37,7 @@ class AccountTests {
     
 	
 	
-    int THREADS = 5;
+    int THREADS = 500;
     private ExecutorService executorService = Executors.newFixedThreadPool(THREADS);
     private CountDownLatch latch = new CountDownLatch(THREADS);
 	
@@ -105,13 +102,13 @@ class AccountTests {
 
 		banktest.addAccount(accName);
 		accounttest = banktest.getAccount(1);
-		accounttest.setBalance(500);
+		accounttest.setBalance(1000);
 		
         for(int i =0; i < THREADS; i++) {
             executorService.execute(new Runnable() {
                 @Override
                 public void run() {
-                    accounttest.withdrawBalance(100);
+                    accounttest.withdrawBalance(1);
                     latch.countDown();
                 }
             });
@@ -119,7 +116,7 @@ class AccountTests {
         executorService.shutdown();
         try {
             latch.await();
-            assertEquals(0, accounttest.getBalance());
+            assertEquals(500, accounttest.getBalance());
         } catch(InterruptedException e) {
 
         }
