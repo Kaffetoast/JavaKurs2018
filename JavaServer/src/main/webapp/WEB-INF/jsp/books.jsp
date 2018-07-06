@@ -11,7 +11,7 @@
 <body>
 
 <header>
-[<a href="/bookindex">Show books</a>]
+[<a href="/books">Show books</a>]
 [<a href="/addbook">Add a book</a>] 
 </header>
 	

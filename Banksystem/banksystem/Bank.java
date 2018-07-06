@@ -64,8 +64,8 @@ public class Bank {
 
 	public void transferBetweenAccounts(Account fromAccount, Account toAccount, double amount) {
 		    if (fromAccount.hasAmount(amount)) {  
-		    	fromAccount.withdrawBalance(amount, fromAccount);
-		    	toAccount.depositBalance(amount, toAccount);
+		    	fromAccount.withdrawBalance(amount);
+		    	toAccount.depositBalance(amount);
 
 		    } else { 
 

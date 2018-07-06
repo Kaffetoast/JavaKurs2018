@@ -8,7 +8,6 @@ public class Account {
 	public ArrayList<Account> accountList = new ArrayList<>();
 
 	
-	Account account;
 	double balance = 0;
 	public int accNum;
 	private String accName;
@@ -43,11 +42,11 @@ public class Account {
 	
    
 
-	public synchronized boolean depositBalance(double depositBalance, Account account) {
+	public synchronized boolean depositBalance(double depositBalance) {
 
 		if(depositBalance >= 0) {
 			this.balance += depositBalance;	
-			 	toTransactionsList("Deposit: " + depositBalance + " to Account "  + account.getAccNum());
+			 	toTransactionsList("Deposit: " + depositBalance + " to Account "  + this.getAccNum());
 			 	
 			 	return true;
 		}
@@ -55,7 +54,7 @@ public class Account {
 		
 	}
 	
-	public synchronized boolean withdrawBalance(double withdrawAmount, Account account) {
+	public synchronized boolean withdrawBalance(double withdrawAmount) {
 		if (lock) {
 			System.out.println("--Is locked--");
 			return false;
@@ -67,15 +66,15 @@ public class Account {
 		
 		if(hasAmount(withdrawAmount)) {
 			
-			 account.balance -= withdrawAmount;
-			 toTransactionsList("Withdraw: " + withdrawAmount + " from Account "  + account.getAccNum());
+			 this.balance -= withdrawAmount;
+			 toTransactionsList("Withdraw: " + withdrawAmount + " from Account "  + this.getAccNum());
 			 
 			 return true;
 			
 		} else {
 		
-		System.out.println("Account Number: " +account.getAccNum() + "\n" + "Account name: " 
-				+account.getAccName() + "\n" + "Balance: " + account.getBalance() + "\n"); 
+		System.out.println("Account Number: " +this.getAccNum() + "\n" + "Account name: " 
+				+this.getAccName() + "\n" + "Balance: " + this.getBalance() + "\n"); 
 		return false;
 		}
 	}

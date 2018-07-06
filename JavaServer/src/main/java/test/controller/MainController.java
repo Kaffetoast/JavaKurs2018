@@ -38,11 +38,11 @@ public class MainController {
 //        return "welcome";
 //    }
 
-    @RequestMapping("/foo")
-    public String foo(Map<String, Object> model) {
-        String result = dataDao.booksFetch().toString();
-        model.put("message", result);
-        return "welcome";
+    @RequestMapping("/")
+    public String books(Map<String, Object> model) {
+		List<Books> books = dataDao.booksFetch();
+		model.put("books", books);
+        return "books";
     }
     
 //    @GetMapping("/")
@@ -50,10 +50,16 @@ public class MainController {
 //		return "books";
 //    }
     
-    @PostMapping("/addbooks")
+    @PostMapping("/createbook")
     public String insertBook(@ModelAttribute("books") Books books) {
     	dataDao.insertBook(books);
-    	return "addbooks";
+    	return "redirect:/books";
+    }
+    
+    @RequestMapping("/addbook")
+    public String newBook(Map<String, Object> model) {
+    	model.put("books", new Books());
+    	return "addbook";
     }
     
     @GetMapping("/editbooks")

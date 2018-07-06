@@ -10,7 +10,10 @@
 <title>Books</title>
 </head>
 <body>
-
+<header>
+[<a href="/books">Show books</a>]
+[<a href="/addbook">Add a book</a>] 
+</header>
 
 
 <h3>Update books</h3>

@@ -12,11 +12,14 @@
 </head>
 <body>
 
-
+<header>
+[<a href="/books">Show books</a>]
+[<a href="/addbook">Add a book</a>] 
+</header>
 
 <h3>Add a book</h3>
 
-<form:form method="POST" action="/addbook" modelAttribute="books">
+<form:form method="POST" action="/createbook" modelAttribute="books">
          <table>
             <tr>
                 <td><form:label path="title">Title</form:label></td>
@@ -27,8 +30,8 @@
                 <td><form:input path="author"/></td>
             </tr>
             <tr>
-                <td><form:label path="published">Year</form:label></td>
-                <td><form:input path="published"/></td>
+                <td><form:label path="year">Year</form:label></td>
+                <td><form:input path="year"/></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Submit"/></td>

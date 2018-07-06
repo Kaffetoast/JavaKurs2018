@@ -87,7 +87,7 @@ public class Program {
 						System.out.println("--How much?--");
 
 						balance = Double.parseDouble(input.readLine());
-						boolean success = chosenAccount.depositBalance(balance, chosenAccount);
+						boolean success = chosenAccount.depositBalance(balance);
 						if (success) {
 							System.out.println("Success");
 						} else {
@@ -113,7 +113,7 @@ public class Program {
 						System.out.println("--How much?--");
 
 						balance = Double.parseDouble(input.readLine());
-						boolean success = chosenAccount.withdrawBalance(balance, chosenAccount);
+						boolean success = chosenAccount.withdrawBalance(balance);
 						if (success) {
 							System.out.println("Success");
 						} else {
