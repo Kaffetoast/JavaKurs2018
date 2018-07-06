@@ -2,6 +2,8 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -14,7 +16,8 @@ class BankTests {
 	
 	Bank banktest = new Bank();
 	Account accounttest = new Account();
-	
+	Account accounttest2 = new Account();
+	public ArrayList<Account> accountList = new ArrayList<>();
 	
 	String accName;
 	Account account;
@@ -48,17 +51,21 @@ class BankTests {
 	}
 	
 	@Test
-	void TransferBalance() {
-		
+	void transferBetweenAccounts() {
 		banktest.addAccount(accName);
-		chosenAccount1 = banktest.getAccount(1);
-		chosenAccount1.setBalance(500);
-		chosenAccount2 = banktest.getAccount(2);
-		chosenAccount2.setBalance(0);
-		banktest.transferBetweenAccounts(chosenAccount1, chosenAccount2, 200);
-		Assert.assertTrue(300 == chosenAccount1.getBalance());
-		Assert.assertTrue(200 == chosenAccount2.getBalance());
-		
+		account = banktest.getAccount(1);
+		accounttest.setBalance(500);
+		account = banktest.getAccount(2);
+		accounttest2.setBalance(0);
+		banktest.transferBetweenAccounts(accounttest, accounttest2, 250);
+		Assert.assertTrue(250 == accounttest2.getBalance());
+	}
+	
+	@Test
+	void displayAllAccountsAndBalance() {
+		banktest.addAccount(accName);
+		banktest.displayAllAccountsAndBalance(accountList);
+			
+		}
 	}
 
-}

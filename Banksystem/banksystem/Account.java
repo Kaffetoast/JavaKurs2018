@@ -43,7 +43,7 @@ public class Account {
 	
    
 
-	public synchronized boolean depositBalance(double depositBalance) {
+	public synchronized boolean depositBalance(double depositBalance, Account account) {
 
 		if(depositBalance >= 0) {
 			this.balance += depositBalance;	
@@ -55,7 +55,7 @@ public class Account {
 		
 	}
 	
-	public synchronized boolean withdrawBalance(double withdrawAmount) {
+	public synchronized boolean withdrawBalance(double withdrawAmount, Account account) {
 		if (lock) {
 			System.out.println("--Is locked--");
 			return false;

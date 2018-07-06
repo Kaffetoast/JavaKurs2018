@@ -56,7 +56,7 @@ public class Person implements Runnable {
             if (toThatFloor == elevator.getCurrentFloor() && elevator.isElevatorDoorOpen()) {
 
             	setInElevator(false);
-                System.out.println("[Door open " + name + " gets out]");
+                System.out.println("[Door opens at " +elevator.currentFloor + " ," + name + " gets out]");
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {

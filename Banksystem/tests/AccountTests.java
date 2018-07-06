@@ -2,17 +2,34 @@ package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
+
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import banksystem.Account;
 import banksystem.Bank;
 
+ 
+
 class AccountTests {
 
+
+	
+
+	public ArrayList<Account> accountList = new ArrayList<>();
+	public ArrayList<String> transactionList = new ArrayList<String>();
+	
+	
 	Bank banktest = new Bank();
 	Account accounttest = new Account();
-	
+	Account accounttest2 = new Account();
 	String accName;
 	Account account;
 	Account thisAccount;
@@ -20,6 +37,12 @@ class AccountTests {
 	Account chosenAccount2;
 	int accNum;
 	double balance;
+    
+	
+	
+    int THREADS = 5;
+    private ExecutorService executorService = Executors.newFixedThreadPool(THREADS);
+    private CountDownLatch latch = new CountDownLatch(THREADS);
 	
 	@Test
 	void addNegativeBalance() {
@@ -35,22 +58,88 @@ class AccountTests {
 			
 		banktest.addAccount(accName);
 		account = banktest.getAccount(1);
-		account.setBalance(0);
-		account.depositBalance(100);
-		Assert.assertTrue(100 == account.getBalance());
+		account.setBalance(100);
+		accounttest.depositBalance(100, account);
+		Assert.assertFalse(501 == account.getBalance());
 		
 	}
+		
+	
+	@Test
+	void depositToAccountMulitThread() {
+		accounttest.setBalance(500);
+		for(int i = 0; i < THREADS; i++) {
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    for(int i = 0; i < 100; i++) {
+                        accounttest.depositBalance(100, accounttest);
+                    }
+                    latch.countDown();
+                }
+            });
+        }
+        executorService.shutdown();
+        try {
+            latch.await();
+            assertEquals(THREADS*10000, accounttest.getBalance(), 500);
+
+        } catch(InterruptedException e) {
+
+        }
+    }
+
 	
 	@Test
 	void withdrawFromAccount() {
 		
 		banktest.addAccount(accName);
-		account = banktest.getAccount(1);
-		account.setBalance(500);
-		account.withdrawBalance(500);
-		Assert.assertFalse(500 == account.getBalance());
+		accounttest = banktest.getAccount(1);
+		accounttest.setBalance(500);
+		accounttest.withdrawBalance(200, accounttest);
+		Assert.assertTrue(300 == accounttest.getBalance());
 	
 	}
+	
+	@Test
+	void withdrawFromAccountMultiThread() {
+
+		banktest.addAccount(accName);
+		accounttest = banktest.getAccount(1);
+		accounttest.setBalance(500);
+		
+        for(int i =0; i < THREADS; i++) {
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    for(int i = 0; i < 100; i++) {
+                    	accounttest.withdrawBalance(100, account);
+                    }
+                    latch.countDown();
+                }
+            });
+        }
+        executorService.shutdown();
+        try {
+            latch.await();
+            assertEquals(0, accounttest.getBalance(), 400);
+        } catch(InterruptedException  e) {
+
+        }
+    }
+
+    
+	
+	@Test
+	void showBalance() {
+		banktest.addAccount(accName);
+		accounttest = banktest.getAccount(1);
+		accounttest.setBalance(500);
+		banktest.displayAccountBalance(accounttest);
+		Assert.assertTrue(500 == accounttest.getBalance());
+	}
+
+		
 	
 
 }
